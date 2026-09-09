@@ -480,9 +480,9 @@ th{background:var(--fog);font-weight:500}
 <section>
   <div class="wrap kit-grid">
     <div class="kit-shots">
-      <img src="https://picsum.photos/seed/kit-parka/900/1200" alt="Парка">
-      <img src="https://picsum.photos/seed/kit-bag/900/1200" alt="Мешок для хранения">
-      <img src="https://picsum.photos/seed/kit-zip/900/1200" alt="Зип-пакет">
+      <img src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?auto=format&amp;fit=crop&amp;q=70&amp;w=900&amp;h=1200" alt="Парка">
+      <img src="https://images.unsplash.com/photo-1727515546577-f7d82a47b51d?auto=format&amp;fit=crop&amp;q=70&amp;w=900&amp;h=1200" alt="Мешок для хранения">
+      <img src="https://images.unsplash.com/photo-1578948856697-db91d246b7b1?auto=format&amp;fit=crop&amp;q=70&amp;w=900&amp;h=1200" alt="Зип-пакет">
     </div>
     <div>
       <h2>В комплекте</h2>
@@ -594,7 +594,7 @@ th{background:var(--fog);font-weight:500}
     <p>Мы делаем одежду для одного конкретного сценария: отдых у воды в плохую погоду. Отсюда мембрана вместо модной ткани, длина, закрывающая поясницу в лодке, и подкладка, в которой не холодно сидеть на берегу вечером.</p>
     <p>Шьём в России небольшими партиями. Каждую модель носим сами минимум сезон, прежде чем поставить в продажу — поэтому линейка растёт медленно.</p>
     <p><a href="#product" class="linkish" data-close>Выбрать надёжную вещь для отдыха на природе</a></p>
-    <img class="big" src="https://picsum.photos/seed/brand-river/1600/700" alt="Река">
+    <img class="big" src="https://images.unsplash.com/photo-1465189684280-6a8fa9b19a7a?auto=format&amp;fit=crop&amp;q=70&amp;w=1600&amp;h=700" alt="Река">
   </div>
 </div>
 
@@ -634,12 +634,14 @@ th{background:var(--fog);font-weight:500}
           { type:'placeholder', label:'подпись' }
    ========================================================================= */
 
-var IMG = 'https://picsum.photos/seed/';
+/* Тематические снимки-подложки. Замените ссылки на свои фото. */
+function U(id, w, h){ return 'https://images.unsplash.com/photo-' + id +
+  '?auto=format&fit=crop&q=70&w=' + w + '&h=' + h; }
 
 var HERO_SLIDES = [
-  { type:'image', src:IMG+'swimmer-river-1/1920/1080', alt:'Река в тумане' },
-  { type:'image', src:IMG+'swimmer-river-2/1920/1080', alt:'Берег и лодка' },
-  { type:'image', src:IMG+'swimmer-river-3/1920/1080', alt:'Дождь над водой' }
+  { type:'image', src:U('1642081907819-5f36f566cb20',1920,1080), alt:'Река в тумане' },
+  { type:'image', src:U('1660570154241-06a6b165f9ec',1920,1080), alt:'Берег и лодка' },
+  { type:'image', src:U('1559022488-570ad0c1e43c',1920,1080), alt:'Дождь над водой' }
 ];
 
 var COLORS = [
@@ -652,31 +654,31 @@ var SIZES = ['XS','S','M','L','XL','XXL','Универсальный'];
 
 var PRODUCTS = [
   { id:'parka-khaki', name:'Речная парка', colorId:'khaki', price:24990, sku:'SW-RP-KH',
-    shots:[IMG+'parka-kh-1/900/1200', IMG+'parka-kh-2/900/1200',
-           IMG+'parka-kh-3/900/1200', IMG+'parka-kh-4/900/1200'] },
+    shots:[U('1721745740020-ed1e8e0d4db8',900,1200), U('1548883354-94bcfe321cbb',900,1200),
+           U('1578948856697-db91d246b7b1',900,1200), U('1521223890158-f9f7c3d5d504',900,1200)] },
   { id:'parka-black', name:'Речная парка', colorId:'black', price:24990, sku:'SW-RP-BK',
-    shots:[IMG+'parka-bk-1/900/1200', IMG+'parka-bk-2/900/1200',
-           IMG+'parka-bk-3/900/1200', IMG+'parka-bk-4/900/1200'] },
+    shots:[U('1654719796836-62b889d4598d',900,1200), U('1556098539-3019e1bdf05e',900,1200),
+           U('1727515546577-f7d82a47b51d',900,1200), U('1548126032-079a0fb0099d',900,1200)] },
   { id:'parka-blue',  name:'Речная парка', colorId:'blue',  price:24990, sku:'SW-RP-BL',
-    shots:[IMG+'parka-bl-1/900/1200', IMG+'parka-bl-2/900/1200',
-           IMG+'parka-bl-3/900/1200', IMG+'parka-bl-4/900/1200'] }
+    shots:[U('1548126032-079a0fb0099d',900,1200), U('1567955465163-c355df3b74bf',900,1200),
+           U('1655972670403-243839675e06',900,1200), U('1551537482-f2075a1d41f2',900,1200)] }
 ];
 
 var SCENARIOS = [
-  { media:{ type:'image', src:IMG+'scen-water/1920/1080', alt:'Сплав по реке' },
+  { media:{ type:'image', src:U('1699645257408-70f18e50991f',1920,1080), alt:'Сплав по реке' },
     title:'Вода', text:'Длина закрывает поясницу в лодке, капюшон регулируется под ветер с воды.' },
-  { media:{ type:'image', src:IMG+'scen-forest/1920/1080', alt:'Лес и лагерь' },
+  { media:{ type:'image', src:U('1610817118922-a7374b775fd9',1920,1080), alt:'Лес и лагерь' },
     title:'Природа', text:'Плотная ткань 140 g/m не боится веток и мокрой травы.' },
-  { media:{ type:'image', src:IMG+'scen-road/1920/1080', alt:'Дорога' },
+  { media:{ type:'image', src:U('1667331634686-313ec875d91e',1920,1080), alt:'Дорога' },
     title:'Свобода', text:'Сложили в фирменный мешок, убрали в багажник — и парка едет с вами.' }
 ];
 
 var DETAILS = [
-  { src:IMG+'det-hood/800/1000',   title:'Капюшон',  text:'Анатомический, с регулировкой по объёму и глубине. Не падает на глаза.' },
-  { src:IMG+'det-collar/800/1000', title:'Воротник', text:'Высокий, закрывает шею до подбородка. Изнутри подбит мягким ворсом.' },
-  { src:IMG+'det-cuff/800/1000',   title:'Манжеты',  text:'Регулируемые: затягиваются в дождь и распускаются, когда жарко.' },
-  { src:IMG+'det-pocket/800/1000', title:'Карманы',  text:'Два вместительных внешних и внутренний водонепроницаемый для документов.' },
-  { src:IMG+'det-zip/800/1000',    title:'Молния',   text:'Двухзамковая, под ветрозащитным клапаном. Открывается снизу при ходьбе.' }
+  { src:U('1721745740020-ed1e8e0d4db8',800,1000),   title:'Капюшон',  text:'Анатомический, с регулировкой по объёму и глубине. Не падает на глаза.' },
+  { src:U('1654719796836-62b889d4598d',800,1000), title:'Воротник', text:'Высокий, закрывает шею до подбородка. Изнутри подбит мягким ворсом.' },
+  { src:U('1548883354-94bcfe321cbb',800,1000),   title:'Манжеты',  text:'Регулируемые: затягиваются в дождь и распускаются, когда жарко.' },
+  { src:U('1556098539-3019e1bdf05e',800,1000), title:'Карманы',  text:'Два вместительных внешних и внутренний водонепроницаемый для документов.' },
+  { src:U('1727515546577-f7d82a47b51d',800,1000),    title:'Молния',   text:'Двухзамковая, под ветрозащитным клапаном. Открывается снизу при ходьбе.' }
 ];
 
 var MODEL_NOTE = 'Модель: рост 182 см, на фото размер L';
