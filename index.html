@@ -74,7 +74,7 @@ header{position:sticky;top:0;z-index:80;background:var(--fog);border-bottom:1px 
 .hero-veil{position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(16,19,20,.55) 0%,rgba(16,19,20,.15) 40%,rgba(16,19,20,.8) 100%)}
 .hero-in{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;
-  padding-bottom:38px;color:var(--white)}
+  padding-top:96px;padding-bottom:64px;color:var(--white)}
 .hero-in h1{font-size:clamp(38px,6.6vw,80px);text-transform:uppercase;letter-spacing:-.03em}
 .hero-t1{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#C9CFCF;margin-bottom:16px}
 .hero-t2{margin-top:16px;max-width:44ch;color:#DDE1E1}
@@ -89,12 +89,11 @@ header{position:sticky;top:0;z-index:80;background:var(--fog);border-bottom:1px 
 .spec b{display:block;font-variation-settings:'opsz' 32;font-weight:600;font-size:17px}
 .spec span{font-size:13px;color:#B7BEBE;line-height:1.45;display:block;margin-top:3px}
 
-.hero-arrows{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);z-index:4;
-  display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
-.hero-arrows button{pointer-events:auto;width:44px;height:44px;border:1px solid rgba(255,255,255,.45);
-  color:#fff;display:grid;place-items:center;font-size:20px}
+.hero-arrows{position:absolute;top:18px;right:28px;z-index:5;display:flex;gap:8px}
+.hero-arrows button{width:38px;height:38px;border:1px solid rgba(255,255,255,.45);
+  color:#fff;display:grid;place-items:center;font-size:18px;line-height:1}
 .hero-arrows button:hover{background:rgba(255,255,255,.16)}
-.hero-dots{position:absolute;top:26px;left:28px;z-index:4;display:flex;gap:6px}
+.hero-dots{position:absolute;top:36px;left:28px;z-index:4;display:flex;gap:6px}
 .hero-dots button{width:34px;height:2px;background:rgba(255,255,255,.4)}
 .hero-dots button[aria-current="true"]{background:#fff}
 
@@ -306,7 +305,9 @@ th{background:var(--fog);font-weight:500}
   .kit-shots .ph:nth-child(n+2){display:none}
   .revs{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr;gap:32px}
-  .hero-in{padding-bottom:28px}
+  .hero-in{padding-top:76px;padding-bottom:40px}
+  .hero-arrows{top:14px;right:20px}
+  .hero-dots{top:31px;left:20px}
   .modal{width:100vw;max-height:100vh;height:100vh;top:0;left:0;transform:translateY(20px)}
   .modal.on{transform:translateY(0)}
   .mbody{padding:20px}
