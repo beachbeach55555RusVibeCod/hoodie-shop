@@ -276,6 +276,17 @@ th{background:var(--fog);font-weight:500}
 .contacts-list div{border-top:1px solid var(--line);padding-top:14px}
 .contacts-list b{font-size:13px;letter-spacing:.1em;color:var(--steel);font-weight:500;display:block;margin-bottom:4px}
 
+
+/* картинки в местах, где раньше были плейсхолдеры */
+.card .shot img{width:100%;height:100%;object-fit:cover}
+.det img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.kit-shots img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.brand-body img.big{width:100%;aspect-ratio:21/9;object-fit:cover;margin-top:24px}
+.pshots img.main{width:100%;aspect-ratio:3/4;object-fit:cover}
+.pthumbs img{width:100%;aspect-ratio:1/1;object-fit:cover;cursor:pointer;border:1px solid var(--line)}
+.pthumbs img:hover{border-color:var(--ink)}
+.citem img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
 /* ===================== АДАПТИВ ===================== */
 @media (max-width:1080px){
   .rail{grid-auto-columns:calc((100% - 24px)/2)}
@@ -469,9 +480,9 @@ th{background:var(--fog);font-weight:500}
 <section>
   <div class="wrap kit-grid">
     <div class="kit-shots">
-      <div class="ph">фото — парка</div>
-      <div class="ph">фото — мешок для хранения</div>
-      <div class="ph">фото — зип-пакет</div>
+      <img src="https://picsum.photos/seed/kit-parka/900/1200" alt="Парка">
+      <img src="https://picsum.photos/seed/kit-bag/900/1200" alt="Мешок для хранения">
+      <img src="https://picsum.photos/seed/kit-zip/900/1200" alt="Зип-пакет">
     </div>
     <div>
       <h2>В комплекте</h2>
@@ -583,7 +594,7 @@ th{background:var(--fog);font-weight:500}
     <p>Мы делаем одежду для одного конкретного сценария: отдых у воды в плохую погоду. Отсюда мембрана вместо модной ткани, длина, закрывающая поясницу в лодке, и подкладка, в которой не холодно сидеть на берегу вечером.</p>
     <p>Шьём в России небольшими партиями. Каждую модель носим сами минимум сезон, прежде чем поставить в продажу — поэтому линейка растёт медленно.</p>
     <p><a href="#product" class="linkish" data-close>Выбрать надёжную вещь для отдыха на природе</a></p>
-    <div class="ph big">фото — река на весь экран</div>
+    <img class="big" src="https://picsum.photos/seed/brand-river/1600/700" alt="Река">
   </div>
 </div>
 
@@ -623,10 +634,12 @@ th{background:var(--fog);font-weight:500}
           { type:'placeholder', label:'подпись' }
    ========================================================================= */
 
+var IMG = 'https://picsum.photos/seed/';
+
 var HERO_SLIDES = [
-  { type:'placeholder', label:'HERO 1 — фото или видео на всю ширину' },
-  { type:'placeholder', label:'HERO 2 — фото или видео' },
-  { type:'placeholder', label:'HERO 3 — фото или видео' }
+  { type:'image', src:IMG+'swimmer-river-1/1920/1080', alt:'Река в тумане' },
+  { type:'image', src:IMG+'swimmer-river-2/1920/1080', alt:'Берег и лодка' },
+  { type:'image', src:IMG+'swimmer-river-3/1920/1080', alt:'Дождь над водой' }
 ];
 
 var COLORS = [
@@ -639,28 +652,31 @@ var SIZES = ['XS','S','M','L','XL','XXL','Универсальный'];
 
 var PRODUCTS = [
   { id:'parka-khaki', name:'Речная парка', colorId:'khaki', price:24990, sku:'SW-RP-KH',
-    shots:['фото — парка хаки','ракурс 2','ракурс 3','деталь'] },
+    shots:[IMG+'parka-kh-1/900/1200', IMG+'parka-kh-2/900/1200',
+           IMG+'parka-kh-3/900/1200', IMG+'parka-kh-4/900/1200'] },
   { id:'parka-black', name:'Речная парка', colorId:'black', price:24990, sku:'SW-RP-BK',
-    shots:['фото — парка чёрная','ракурс 2','ракурс 3','деталь'] },
+    shots:[IMG+'parka-bk-1/900/1200', IMG+'parka-bk-2/900/1200',
+           IMG+'parka-bk-3/900/1200', IMG+'parka-bk-4/900/1200'] },
   { id:'parka-blue',  name:'Речная парка', colorId:'blue',  price:24990, sku:'SW-RP-BL',
-    shots:['фото — парка синяя','ракурс 2','ракурс 3','деталь'] }
+    shots:[IMG+'parka-bl-1/900/1200', IMG+'parka-bl-2/900/1200',
+           IMG+'parka-bl-3/900/1200', IMG+'parka-bl-4/900/1200'] }
 ];
 
 var SCENARIOS = [
-  { media:{ type:'placeholder', label:'фото/видео — сплав по реке' },
+  { media:{ type:'image', src:IMG+'scen-water/1920/1080', alt:'Сплав по реке' },
     title:'Вода', text:'Длина закрывает поясницу в лодке, капюшон регулируется под ветер с воды.' },
-  { media:{ type:'placeholder', label:'фото/видео — лес и лагерь' },
+  { media:{ type:'image', src:IMG+'scen-forest/1920/1080', alt:'Лес и лагерь' },
     title:'Природа', text:'Плотная ткань 140 g/m не боится веток и мокрой травы.' },
-  { media:{ type:'placeholder', label:'фото/видео — город и дорога' },
+  { media:{ type:'image', src:IMG+'scen-road/1920/1080', alt:'Дорога' },
     title:'Свобода', text:'Сложили в фирменный мешок, убрали в багажник — и парка едет с вами.' }
 ];
 
 var DETAILS = [
-  { label:'макро — капюшон',  title:'Капюшон',  text:'Анатомический, с регулировкой по объёму и глубине. Не падает на глаза.' },
-  { label:'макро — воротник', title:'Воротник', text:'Высокий, закрывает шею до подбородка. Изнутри подбит мягким ворсом.' },
-  { label:'макро — манжеты',  title:'Манжеты',  text:'Регулируемые: затягиваются в дождь и распускаются, когда жарко.' },
-  { label:'макро — карманы',  title:'Карманы',  text:'Два вместительных внешних и внутренний водонепроницаемый для документов.' },
-  { label:'макро — молния',   title:'Молния',   text:'Двухзамковая, под ветрозащитным клапаном. Открывается снизу при ходьбе.' }
+  { src:IMG+'det-hood/800/1000',   title:'Капюшон',  text:'Анатомический, с регулировкой по объёму и глубине. Не падает на глаза.' },
+  { src:IMG+'det-collar/800/1000', title:'Воротник', text:'Высокий, закрывает шею до подбородка. Изнутри подбит мягким ворсом.' },
+  { src:IMG+'det-cuff/800/1000',   title:'Манжеты',  text:'Регулируемые: затягиваются в дождь и распускаются, когда жарко.' },
+  { src:IMG+'det-pocket/800/1000', title:'Карманы',  text:'Два вместительных внешних и внутренний водонепроницаемый для документов.' },
+  { src:IMG+'det-zip/800/1000',    title:'Молния',   text:'Двухзамковая, под ветрозащитным клапаном. Открывается снизу при ходьбе.' }
 ];
 
 var MODEL_NOTE = 'Модель: рост 182 см, на фото размер L';
@@ -744,7 +760,7 @@ function mediaNode(m, phClass){
     card.setAttribute('tabindex','0');
 
     var shot = el('div','shot');
-    shot.appendChild(mediaNode({ type:'placeholder', label:p.shots[0] }));
+    shot.appendChild(mediaNode({ type:'image', src:p.shots[0], alt:p.name }));
     card.appendChild(shot);
 
     var body = el('div','cbody');
@@ -822,7 +838,7 @@ function mediaNode(m, phClass){
   var rail = document.getElementById('detRail');
   DETAILS.forEach(function(d){
     var card = el('div','det');
-    card.appendChild(mediaNode({ type:'placeholder', label:d.label }));
+    card.appendChild(mediaNode({ type:'image', src:d.src, alt:d.title }));
     var cap = el('div','cap');
     cap.appendChild(el('h3', null, d.title));
     cap.appendChild(el('p', null, d.text));
@@ -906,12 +922,14 @@ function renderProduct(){
   var grid = el('div','pcard');
 
   var shots = el('div','pshots');
-  var main = el('div','ph main'); main.textContent = p.shots[0];
+  var main = document.createElement('img');
+  main.className = 'main'; main.src = p.shots[0]; main.alt = p.name;
   shots.appendChild(main);
   var th = el('div','pthumbs');
-  p.shots.forEach(function(label){
-    var t = el('div','ph'); t.textContent = label;
-    t.addEventListener('click', function(){ main.textContent = label; });
+  p.shots.forEach(function(src){
+    var t = document.createElement('img');
+    t.src = src; t.alt = '';
+    t.addEventListener('click', function(){ main.src = src; });
     th.appendChild(t);
   });
   shots.appendChild(th);
@@ -1023,7 +1041,8 @@ function renderCart(){
     count += it.qty;
 
     var row = el('div','citem');
-    var img = el('div','ph'); img.textContent = it.shot;
+    var img = document.createElement('img');
+    img.src = it.shot; img.alt = '';
     row.appendChild(img);
 
     var col = el('div');
