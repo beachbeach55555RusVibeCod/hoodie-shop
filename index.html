@@ -1,40 +1,562 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HoodieShop — магазин толстовок</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: system-ui, sans-serif; color:#1a1a1a; }
-    header { padding:20px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; }
-    .logo { font-weight:800; font-size:24px; }
-    .hero { text-align:center; padding:120px 20px; background:#f5f5f5; }
-    .hero h1 { font-size:48px; margin-bottom:20px; }
-    .hero p { font-size:20px; color:#555; margin-bottom:30px; }
-    .btn { display:inline-block; padding:14px 32px; background:#1a1a1a; color:#fff; text-decoration:none; border-radius:8px; font-weight:600; }
-    .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; padding:60px 40px; max-width:1100px; margin:0 auto; }
-    .card { border:1px solid #eee; border-radius:12px; overflow:hidden; }
-    .card .ph { height:220px; background:#ddd; }
-    .card .info { padding:16px; }
-    footer { text-align:center; padding:40px; color:#888; border-top:1px solid #eee; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ТЁПЛО — худи Heavy 400</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFBF9;
+  --ink:#16181A;
+  --ash:#6E7377;
+  --line:#E2E2DD;
+  --slate:#22262A;
+  --olive:#4A5A3A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h2{font-family:Archivo,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.05;
+   font-size:clamp(28px,4.2vw,46px)}
+h3{font-family:Archivo,sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em}
+.lede{color:var(--ash);max-width:58ch;margin-top:14px}
+
+/* ---------- placeholder media ---------- */
+.ph{
+  background:
+    repeating-linear-gradient(135deg,#EDEDE8 0 12px,#E6E6E0 12px 24px);
+  display:flex;align-items:center;justify-content:center;
+  color:#9A9E9C;font-size:12px;letter-spacing:.04em;
+}
+.ph[data-tone="dark"]{background:repeating-linear-gradient(135deg,#2A2E31 0 12px,#25292C 12px 24px);color:#777}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:60;background:rgba(251,251,249,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.bar{display:flex;align-items:center;gap:32px;height:64px}
+.brand{font-family:Archivo,sans-serif;font-weight:800;font-size:20px;letter-spacing:.12em}
+nav{display:flex;gap:26px;font-size:14px;color:var(--ash)}
+nav a:hover{color:var(--ink)}
+.bar .right{margin-left:auto;display:flex;gap:18px;align-items:center;font-size:14px}
+.cart-btn{border:1px solid var(--ink);border-radius:2px;padding:8px 16px;font-weight:500}
+.burger{display:none}
+
+/* ---------- hero slider ---------- */
+.hero{position:relative;height:min(84vh,720px);min-height:480px;overflow:hidden;background:#111}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none}
+.slide.on{opacity:1;pointer-events:auto}
+.slide>*{width:100%;height:100%;object-fit:cover}
+.slide .ph{height:100%}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,14,.72) 0%,rgba(10,12,14,.28) 55%,rgba(10,12,14,.1) 100%)}
+.hero-copy{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;color:#fff}
+.hero-copy h1{font-family:Archivo,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:.94;
+  font-size:clamp(40px,7vw,84px);text-transform:uppercase;max-width:12ch}
+.hero-copy p{margin-top:18px;max-width:46ch;color:#D6D8D6}
+.hero-buy{display:flex;align-items:center;gap:22px;margin-top:34px;flex-wrap:wrap}
+.price{font-family:Archivo,sans-serif;font-weight:600;font-size:26px}
+.btn{display:inline-block;padding:14px 30px;border-radius:2px;font-weight:600;font-size:15px;
+  background:#fff;color:var(--ink);border:1px solid #fff;transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:#fff}
+.btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-dark:hover{background:transparent;color:var(--ink)}
+.hero-nav{position:absolute;bottom:28px;right:24px;display:flex;gap:8px;z-index:5}
+.hero-nav button{width:34px;height:34px;border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:50%;
+  display:grid;place-items:center;transition:background .2s}
+.hero-nav button:hover{background:rgba(255,255,255,.18)}
+.dots{position:absolute;bottom:34px;left:24px;display:flex;gap:8px;z-index:5}
+.dots button{width:30px;height:3px;background:rgba(255,255,255,.35)}
+.dots button[aria-current="true"]{background:#fff}
+.hero-specs{position:absolute;left:0;right:0;bottom:0;z-index:4;border-top:1px solid rgba(255,255,255,.16);
+  background:rgba(10,12,14,.35);backdrop-filter:blur(4px)}
+.hero-specs .wrap{display:flex;gap:40px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px;color:#E8E9E7;font-size:13px}
+.hero-specs b{font-family:Archivo,sans-serif;font-weight:600;font-size:15px;display:block}
+.hero-specs span{color:#A9AEAB}
+
+/* ---------- sections ---------- */
+section{padding:88px 0}
+.sec-head{max-width:70ch;margin-bottom:44px}
+
+.colors{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.color figure .ph{aspect-ratio:3/4}
+.color figcaption{margin-top:14px;display:flex;justify-content:space-between;align-items:baseline;
+  border-top:1px solid var(--line);padding-top:12px}
+.color small{color:var(--ash)}
+
+.statement{background:var(--slate);color:#fff;padding:0}
+.statement .grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
+.statement .txt{padding:76px 56px}
+.statement h2{font-size:clamp(26px,3.4vw,40px)}
+.statement p{color:#B9BDBB;margin-top:18px;max-width:44ch}
+.statement .ph{min-height:420px}
+
+.tech{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
+.layers{display:grid;gap:10px}
+.layer{display:flex;align-items:center;gap:16px;border:1px solid var(--line);padding:16px 18px;background:#fff}
+.layer .num{font-family:Archivo,sans-serif;font-weight:600;color:var(--olive);font-size:14px;min-width:56px}
+.layer p{font-size:14px;color:var(--ash);margin-top:2px}
+.spec-list{display:grid;gap:22px}
+.spec-list div{border-left:2px solid var(--olive);padding-left:16px}
+.spec-list p{color:var(--ash);font-size:14px;margin-top:4px}
+
+.details{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.details .ph{aspect-ratio:1/1}
+.details h3{margin-top:14px;font-size:16px}
+.details p{font-size:14px;color:var(--ash);margin-top:6px}
+
+.fit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.fit .ph{aspect-ratio:4/5}
+.fit-note{margin-top:20px;font-size:14px;color:var(--ash);display:flex;gap:28px;flex-wrap:wrap}
+
+/* size table */
+.sizes{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px;background:#fff}
+th,td{border:1px solid var(--line);padding:12px 14px;text-align:left}
+th{font-family:Archivo,sans-serif;font-weight:600;background:#F4F4F0}
+tbody tr:hover{background:#FAFAF6}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start}
+.score{font-family:Archivo,sans-serif;font-weight:800;font-size:56px;line-height:1}
+.stars{color:var(--olive);letter-spacing:2px;margin:8px 0 18px}
+.bars{display:grid;gap:8px;font-size:13px;color:var(--ash)}
+.bars div{display:flex;align-items:center;gap:10px}
+.bars i{flex:1;height:4px;background:var(--line);position:relative;font-style:normal}
+.bars i b{position:absolute;inset:0;background:var(--olive);width:var(--w)}
+.rlist{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.review{border-top:1px solid var(--line);padding-top:18px}
+.review .who{display:flex;justify-content:space-between;font-size:13px;color:var(--ash);margin-bottom:8px}
+.review p{font-size:15px}
+
+/* faq */
+.faq{max-width:820px}
+.q{border-bottom:1px solid var(--line)}
+.q summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;gap:20px;
+  font-family:Archivo,sans-serif;font-weight:500;font-size:17px}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"+";color:var(--ash);font-size:20px;transition:transform .2s}
+.q[open] summary::after{content:"–"}
+.q p{padding:0 0 20px;color:var(--ash);max-width:70ch}
+
+/* promises */
+.promises{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;border-top:1px solid var(--line);padding-top:44px}
+.promise h3{margin-bottom:6px}
+.promise p{font-size:14px;color:var(--ash)}
+
+/* closer + footer */
+.closer{background:var(--slate);color:#fff;text-align:center;padding:96px 0}
+.closer h2{font-size:clamp(28px,4.6vw,52px)}
+.closer p{color:#B9BDBB;margin:16px auto 30px;max-width:46ch}
+footer{padding:52px 0;font-size:14px;color:var(--ash)}
+.fgrid{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
+.fgrid a{display:block;padding:3px 0}
+.fgrid a:hover{color:var(--ink)}
+footer .brand{color:var(--ink);margin-bottom:12px}
+
+@media (max-width:900px){
+  nav{display:none}
+  .burger{display:block}
+  .statement .grid,.tech,.reviews{grid-template-columns:1fr;gap:0}
+  .statement .txt{padding:52px 24px}
+  .tech,.reviews{gap:36px}
+  .details{grid-template-columns:repeat(2,1fr)}
+  .rlist{grid-template-columns:1fr}
+  .promises{grid-template-columns:1fr;gap:22px}
+  section{padding:64px 0}
+  .hero-specs{display:none}
+}
+@media (max-width:620px){
+  .colors,.fit{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">HoodieShop</div>
-    <a class="btn" href="#catalog">Каталог</a>
-  </header>
-  <section class="hero">
-    <h1>Толстовки, в которых тепло</h1>
-    <p>Качественные худи и свитшоты. Доставка по всей России.</p>
-    <a class="btn" href="#catalog">Смотреть каталог</a>
-  </section>
-  <section class="products" id="catalog">
-    <div class="card"><div class="ph"></div><div class="info"><h3>Худи Classic</h3><p>2 990 руб.</p></div></div>
-    <div class="card"><div class="ph"></div><div class="info"><h3>Свитшот Oversize</h3><p>3 490 руб.</p></div></div>
-    <div class="card"><div class="ph"></div><div class="info"><h3>Худи Zip</h3><p>3 990 руб.</p></div></div>
-  </section>
-  <footer>&copy; 2026 HoodieShop</footer>
+
+<header>
+  <div class="wrap bar">
+    <a href="#" class="brand">ТЁПЛО</a>
+    <nav>
+      <a href="#colors">Худи</a>
+      <a href="#tech">Материал</a>
+      <a href="#sizes">Размеры</a>
+      <a href="#delivery">Доставка</a>
+    </nav>
+    <div class="right">
+      <button class="burger" aria-label="Меню">☰</button>
+      <button class="cart-btn">Корзина · 0</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO SLIDER: сюда вставляются фото и видео ===== -->
+<section class="hero" id="hero" aria-label="Промо">
+  <div class="slides" id="slides"><!-- слайды рендерит скрипт --></div>
+  <div class="veil"></div>
+
+  <div class="wrap hero-copy">
+    <h1>Худи<br>Heavy 400</h1>
+    <p>Плотный хлопковый футер, который не вытягивается после третьей стирки. Три цвета, посадка чуть свободнее обычной.</p>
+    <div class="hero-buy">
+      <span class="price">4 990 ₽</span>
+      <a href="#sizes" class="btn">Выбрать размер</a>
+    </div>
+  </div>
+
+  <div class="dots" id="dots"></div>
+  <div class="hero-nav">
+    <button id="prev" aria-label="Предыдущий слайд">‹</button>
+    <button id="next" aria-label="Следующий слайд">›</button>
+  </div>
+
+  <div class="hero-specs">
+    <div class="wrap">
+      <div><b>400 г/м²</b><span>плотность футера</span></div>
+      <div><b>100% хлопок</b><span>трёхнитка с начёсом</span></div>
+      <div><b>3 цвета</b><span>графит, олива, молоко</span></div>
+      <div><b>XS–XXL</b><span>унисекс</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ЦВЕТА ===== -->
+<section id="colors">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Одна модель, три цвета</h2>
+      <p class="lede">Крой и плотность одинаковые — меняется только цвет полотна. Все три красятся в одной партии, чтобы оттенок был стабильным.</p>
+    </div>
+    <div class="colors">
+      <div class="color">
+        <figure><div class="ph">фото — графит</div></figure>
+        <figcaption><h3>Графит</h3><small>в наличии</small></figcaption>
+      </div>
+      <div class="color">
+        <figure><div class="ph">фото — олива</div></figure>
+        <figcaption><h3>Олива</h3><small>в наличии</small></figcaption>
+      </div>
+      <div class="color">
+        <figure><div class="ph">фото — молоко</div></figure>
+        <figcaption><h3>Молоко</h3><small>под заказ, 7 дней</small></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ТЁМНАЯ ПЛАШКА ===== -->
+<section class="statement">
+  <div class="grid">
+    <div class="txt">
+      <h2>Для города.<br>Для холода.<br>Для каждого дня.</h2>
+      <p>Худи, которое надевают утром и снимают вечером: под куртку зимой, само по себе — весной. Плотность 400 держит форму, а начёс внутри не сваливается в катышки.</p>
+    </div>
+    <div class="ph" data-tone="dark">фото — образ на улице</div>
+  </div>
+</section>
+
+<!-- ===== МАТЕРИАЛ ===== -->
+<section id="tech">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Что внутри полотна</h2>
+      <p class="lede">Трёхнитка с начёсом — три слоя пряжи вместо двух. Отсюда вес, плотность и то, что вещь не просвечивает.</p>
+    </div>
+    <div class="tech">
+      <div class="layers">
+        <div class="layer"><span class="num">Лицо</span><div><h3>Гладкое переплетение</h3><p>Ровная поверхность, на которой чисто ложится печать и вышивка.</p></div></div>
+        <div class="layer"><span class="num">Основа</span><div><h3>Несущая нить</h3><p>Держит форму плеч и низа, не даёт полотну тянуться вниз.</p></div></div>
+        <div class="layer"><span class="num">Изнанка</span><div><h3>Начёс</h3><p>Мягкий ворс, который удерживает тепло и не колется на голое тело.</p></div></div>
+      </div>
+      <div class="spec-list">
+        <div><h3>400 г/м²</h3><p>Плотность выше средней: типовое худи — 280–320 г/м².</p></div>
+        <div><h3>Хлопок без синтетики</h3><p>Не электризуется и не липнет, но сохнет дольше смесового.</p></div>
+        <div><h3>Декатированное полотно</h3><p>Усадку даёт до пошива, поэтому после стирки размер остаётся своим.</p></div>
+        <div><h3>Плоские швы</h3><p>Не натирают под рюкзаком и не выделяются под верхней одеждой.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ДЕТАЛИ ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Продумано до мелочей</h2>
+      <p class="lede">Места, где худи обычно сдаётся первым: капюшон, манжеты, карман и горловина.</p>
+    </div>
+    <div class="details">
+      <div>
+        <div class="ph">макро — капюшон</div>
+        <h3>Двухслойный капюшон</h3>
+        <p>Держит объём и не падает на глаза, даже без шнурка.</p>
+      </div>
+      <div>
+        <div class="ph">макро — манжет</div>
+        <h3>Плотный манжет</h3>
+        <p>Широкая резинка с эластаном, не растягивается за сезон.</p>
+      </div>
+      <div>
+        <div class="ph">макро — карман</div>
+        <h3>Карман кенгуру</h3>
+        <p>Глубина под ладонь целиком, вход укреплён закрепками.</p>
+      </div>
+      <div>
+        <div class="ph">макро — горловина</div>
+        <h3>Тесьма по горловине</h3>
+        <p>Шов закрыт лентой — воротник не вытягивается со временем.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ПОСАДКА ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Посадка</h2>
+      <p class="lede">Свободнее классического кроя, но без оверсайза: плечо приспущено на 2 см, низ заканчивается по линии бедра.</p>
+    </div>
+    <div class="fit">
+      <div class="ph">фото — спереди</div>
+      <div class="ph">фото — сбоку</div>
+      <div class="ph">фото — сзади</div>
+    </div>
+    <div class="fit-note">
+      <span>Модель: рост 182 см, обхват груди 96 см</span>
+      <span>На фото размер L</span>
+      <span>Между размерами — берите меньший</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== РАЗМЕРЫ ===== -->
+<section id="sizes">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Таблица размеров</h2>
+      <p class="lede">Мерки сняты по изделию, разложенному на столе, погрешность ±1 см. Сравните с худи, которое вам уже нравится.</p>
+    </div>
+    <div class="sizes">
+      <table>
+        <thead>
+          <tr><th>Размер</th><th>Рост, см</th><th>Грудь, см</th><th>Длина, см</th><th>Рукав, см</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>XS</td><td>160–168</td><td>102</td><td>64</td><td>58</td></tr>
+          <tr><td>S</td><td>166–174</td><td>108</td><td>66</td><td>60</td></tr>
+          <tr><td>M</td><td>172–180</td><td>114</td><td>68</td><td>62</td></tr>
+          <tr><td>L</td><td>178–186</td><td>120</td><td>70</td><td>64</td></tr>
+          <tr><td>XL</td><td>184–192</td><td>126</td><td>72</td><td>66</td></tr>
+          <tr><td>XXL</td><td>188–196</td><td>132</td><td>74</td><td>68</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ОТЗЫВЫ ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Отзывы покупателей</h2></div>
+    <div class="reviews">
+      <div>
+        <div class="score">4,8</div>
+        <div class="stars">★★★★★</div>
+        <div class="bars">
+          <div><span>5</span><i><b style="--w:82%"></b></i><span>128</span></div>
+          <div><span>4</span><i><b style="--w:12%"></b></i><span>19</span></div>
+          <div><span>3</span><i><b style="--w:4%"></b></i><span>6</span></div>
+          <div><span>2</span><i><b style="--w:1%"></b></i><span>2</span></div>
+          <div><span>1</span><i><b style="--w:1%"></b></i><span>1</span></div>
+        </div>
+      </div>
+      <div class="rlist">
+        <div class="review">
+          <div class="who"><span>Артём К.</span><span>★★★★★</span></div>
+          <p>Взял оливу, размер L при росте 180. Село ровно так, как на фото. После двух стирок не село и не растянулось.</p>
+        </div>
+        <div class="review">
+          <div class="who"><span>Мария С.</span><span>★★★★★</span></div>
+          <p>Плотность реально чувствуется, это не типичная тонкая толстовка. Внутри мягко, шею не трёт.</p>
+        </div>
+        <div class="review">
+          <div class="who"><span>Данил В.</span><span>★★★★☆</span></div>
+          <p>Всё нравится, кроме сушки — хлопок сохнет долго. Но это к материалу, а не к вещи.</p>
+        </div>
+        <div class="review">
+          <div class="who"><span>Ольга Р.</span><span>★★★★★</span></div>
+          <p>Заказывала графит, пришло за три дня. Карман глубокий, капюшон держит форму — то, что искала.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="delivery">
+  <div class="wrap">
+    <div class="sec-head"><h2>Частые вопросы</h2></div>
+    <div class="faq">
+      <details class="q"><summary>Как стирать, чтобы не село?</summary><p>Машинная стирка при 30 °C, без отжима на высоких оборотах. Полотно декатировано до пошива, поэтому при соблюдении режима усадки не будет.</p></details>
+      <details class="q"><summary>Как понять свой размер?</summary><p>Разложите на столе худи, посадка которого вас устраивает, и сравните ширину груди и длину с таблицей выше. Если попадаете между размерами — берите меньший.</p></details>
+      <details class="q"><summary>Сколько идёт доставка?</summary><p>По России — 2–5 дней курьером или в пункт выдачи. По вашему городу — на следующий день при заказе до 15:00.</p></details>
+      <details class="q"><summary>Можно вернуть, если не подошло?</summary><p>Да, 14 дней с момента получения при сохранённых бирках. Обратную доставку при обмене на другой размер берём на себя.</p></details>
+      <details class="q"><summary>Будут ли ещё цвета?</summary><p>Следующая партия — тёмно-синий и песочный. Оставьте почту в форме ниже, напишем за день до старта продаж.</p></details>
+    </div>
+
+    <div class="promises">
+      <div class="promise"><h3>Доставка от 2 дней</h3><p>Курьером до двери или в пункт выдачи рядом с домом.</p></div>
+      <div class="promise"><h3>Обмен размера бесплатно</h3><p>Один обмен на любой другой размер за наш счёт.</p></div>
+      <div class="promise"><h3>Гарантия на швы — год</h3><p>Разошёлся шов — меняем изделие без экспертизы.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ФИНАЛ ===== -->
+<section class="closer">
+  <div class="wrap">
+    <h2>Тепло, которое носят каждый день</h2>
+    <p>Три цвета, шесть размеров, одна плотность — 400 г/м².</p>
+    <a href="#hero" class="btn">Выбрать худи</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <div class="brand">ТЁПЛО</div>
+      <div>© 2026. Худи и свитшоты.</div>
+    </div>
+    <div>
+      <a href="#colors">Худи</a>
+      <a href="#tech">Материал</a>
+      <a href="#sizes">Размеры</a>
+    </div>
+    <div>
+      <a href="#delivery">Доставка и возврат</a>
+      <a href="#delivery">Частые вопросы</a>
+      <a href="mailto:hello@example.ru">hello@example.ru</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   HERO: слайды. Поддерживает image, video и пустой placeholder.
+   Чтобы вставить своё — замените src. Порядок = порядок показа.
+   { type:'image', src:'img/hero-1.jpg', alt:'...' }
+   { type:'video', src:'video/hero.mp4', poster:'img/poster.jpg' }
+   { type:'placeholder', label:'текст' }
+   ============================================================ */
+var HERO_SLIDES = [
+  { type:'placeholder', label:'слайд 1 — фото или видео' },
+  { type:'placeholder', label:'слайд 2 — фото или видео' },
+  { type:'placeholder', label:'слайд 3 — фото или видео' }
+];
+
+var AUTOPLAY_MS = 6000;
+
+var slidesEl = document.getElementById('slides');
+var dotsEl = document.getElementById('dots');
+var idx = 0, timer = null;
+
+function buildSlide(s){
+  var wrapEl = document.createElement('div');
+  wrapEl.className = 'slide';
+  if (s.type === 'video' && s.src) {
+    var v = document.createElement('video');
+    v.src = s.src; v.muted = true; v.loop = true; v.playsInline = true;
+    v.setAttribute('playsinline',''); v.preload = 'metadata';
+    if (s.poster) v.poster = s.poster;
+    wrapEl.appendChild(v);
+  } else if (s.type === 'image' && s.src) {
+    var i = document.createElement('img');
+    i.src = s.src; i.alt = s.alt || '';
+    wrapEl.appendChild(i);
+  } else {
+    var p = document.createElement('div');
+    p.className = 'ph'; p.dataset.tone = 'dark';
+    p.textContent = s.label || 'медиа';
+    wrapEl.appendChild(p);
+  }
+  return wrapEl;
+}
+
+HERO_SLIDES.forEach(function(s, n){
+  var el = buildSlide(s);
+  if (n === 0) el.classList.add('on');
+  slidesEl.appendChild(el);
+
+  var d = document.createElement('button');
+  d.setAttribute('aria-label', 'Слайд ' + (n + 1));
+  d.setAttribute('aria-current', n === 0 ? 'true' : 'false');
+  d.addEventListener('click', function(){ go(n); });
+  dotsEl.appendChild(d);
+});
+
+function go(n){
+  var all = slidesEl.children, dots = dotsEl.children;
+  if (!all.length) return;
+  all[idx].classList.remove('on');
+  dots[idx].setAttribute('aria-current','false');
+  var prevVid = all[idx].querySelector('video');
+  if (prevVid) prevVid.pause();
+
+  idx = (n + all.length) % all.length;
+
+  all[idx].classList.add('on');
+  dots[idx].setAttribute('aria-current','true');
+  var vid = all[idx].querySelector('video');
+  if (vid) { vid.currentTime = 0; vid.play().catch(function(){}); }
+  restart();
+}
+
+function restart(){
+  clearInterval(timer);
+  if (HERO_SLIDES.length > 1) timer = setInterval(function(){ go(idx + 1); }, AUTOPLAY_MS);
+}
+
+document.getElementById('next').addEventListener('click', function(){ go(idx + 1); });
+document.getElementById('prev').addEventListener('click', function(){ go(idx - 1); });
+
+document.addEventListener('keydown', function(e){
+  if (e.key === 'ArrowRight') go(idx + 1);
+  if (e.key === 'ArrowLeft') go(idx - 1);
+});
+
+/* свайп на телефоне */
+var x0 = null;
+var heroEl = document.getElementById('hero');
+heroEl.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+heroEl.addEventListener('touchend', function(e){
+  if (x0 === null) return;
+  var dx = e.changedTouches[0].clientX - x0;
+  if (Math.abs(dx) > 50) go(dx < 0 ? idx + 1 : idx - 1);
+  x0 = null;
+}, {passive:true});
+
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) restart();
+
+/* первое видео стартует само, если оно первым слайдом */
+var firstVid = slidesEl.querySelector('.slide.on video');
+if (firstVid) firstVid.play().catch(function(){});
+</script>
 </body>
 </html>
