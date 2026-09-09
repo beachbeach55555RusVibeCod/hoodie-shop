@@ -640,7 +640,9 @@ function U(id, w, h){ return 'https://images.unsplash.com/photo-' + id +
   '?auto=format&fit=crop&q=70&w=' + w + '&h=' + h; }
 
 var HERO_SLIDES = [
-  { type:'image', src:U('1642081907819-5f36f566cb20',1920,1080), alt:'Река в тумане' },
+  { type:'video',
+    src:'https://assets.mixkit.co/videos/15337/15337-360.mp4',
+    poster:U('1642081907819-5f36f566cb20',1920,1080) },
   { type:'image', src:U('1660570154241-06a6b165f9ec',1920,1080), alt:'Берег и лодка' },
   { type:'image', src:U('1559022488-570ad0c1e43c',1920,1080), alt:'Дождь над водой' }
 ];
