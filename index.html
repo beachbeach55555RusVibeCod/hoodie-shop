@@ -3,560 +3,1085 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ТЁПЛО — худи Heavy 400</title>
+<title>SWIMMER — Речная парка</title>
+<meta name="description" content="Тёплая мембранная парка-плед для дождя, ветра и холодной погоды. Надёжные вещи для отдыха у воды.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FBFBF9;
-  --ink:#16181A;
-  --ash:#6E7377;
-  --line:#E2E2DD;
-  --slate:#22262A;
-  --olive:#4A5A3A;
+  --white:#FFFFFF;
+  --fog:#EDEFEF;
+  --fog-deep:#E3E6E6;
+  --khaki:#575E43;
+  --ink:#191D1E;
+  --steel:#7E8688;
+  --line:#D6DADA;
+  --nav-h:68px;
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:var(--paper);color:var(--ink);
-  font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.6;
+  background:var(--white);color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:16px;line-height:1.6;font-weight:400;
+  font-variation-settings:'opsz' 14;
   -webkit-font-smoothing:antialiased;
 }
-img,video{display:block;max-width:100%}
+body.lock{overflow:hidden}
+img,video,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
-:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+:focus-visible{outline:2px solid var(--khaki);outline-offset:3px}
 
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-h2{font-family:Archivo,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.05;
-   font-size:clamp(28px,4.2vw,46px)}
-h3{font-family:Archivo,sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em}
-.lede{color:var(--ash);max-width:58ch;margin-top:14px}
+h1,h2,h3,.display{font-variation-settings:'opsz' 32;letter-spacing:-.02em;line-height:1.06;font-weight:600}
+h2{font-size:clamp(26px,3.6vw,42px)}
+h3{font-size:18px;font-weight:600}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+section{padding:96px 0}
+.sec-head{margin-bottom:44px;max-width:64ch}
+.lede{color:var(--steel);margin-top:14px;max-width:58ch}
+.num{font-variant-numeric:tabular-nums}
 
-/* ---------- placeholder media ---------- */
 .ph{
-  background:
-    repeating-linear-gradient(135deg,#EDEDE8 0 12px,#E6E6E0 12px 24px);
-  display:flex;align-items:center;justify-content:center;
-  color:#9A9E9C;font-size:12px;letter-spacing:.04em;
+  background:repeating-linear-gradient(135deg,#E7EAEA 0 14px,#DFE3E3 14px 28px);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#9AA1A2;font-size:12px;letter-spacing:.05em;padding:12px;
 }
-.ph[data-tone="dark"]{background:repeating-linear-gradient(135deg,#2A2E31 0 12px,#25292C 12px 24px);color:#777}
+.ph.dark{background:repeating-linear-gradient(135deg,#2B2F30 0 14px,#262A2B 14px 28px);color:#767C7D}
 
-/* ---------- header ---------- */
-header{
-  position:sticky;top:0;z-index:60;background:rgba(251,251,249,.92);
-  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
-}
-.bar{display:flex;align-items:center;gap:32px;height:64px}
-.brand{font-family:Archivo,sans-serif;font-weight:800;font-size:20px;letter-spacing:.12em}
-nav{display:flex;gap:26px;font-size:14px;color:var(--ash)}
-nav a:hover{color:var(--ink)}
-.bar .right{margin-left:auto;display:flex;gap:18px;align-items:center;font-size:14px}
-.cart-btn{border:1px solid var(--ink);border-radius:2px;padding:8px 16px;font-weight:500}
-.burger{display:none}
+/* ===================== ХЭДЕР ===================== */
+header{position:sticky;top:0;z-index:80;background:var(--fog);border-bottom:1px solid var(--line)}
+.bar{height:var(--nav-h);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;font-variation-settings:'opsz' 32;
+  font-weight:700;font-size:20px;letter-spacing:.14em}
+.logo svg{width:26px;height:26px}
+.menu{display:flex;gap:34px;justify-content:center;font-size:15px}
+.menu button,.menu a{color:var(--ink);padding:6px 0;border-bottom:1px solid transparent}
+.menu button:hover,.menu a:hover{border-bottom-color:var(--khaki)}
+.tools{display:flex;justify-content:flex-end;align-items:center;gap:14px}
+.cart-open{display:flex;align-items:center;gap:8px;border:1px solid var(--ink);padding:9px 16px;font-size:14px}
+.cart-open:hover{background:var(--ink);color:var(--white)}
+.burger{display:none;font-size:20px;line-height:1}
 
-/* ---------- hero slider ---------- */
-.hero{position:relative;height:min(84vh,720px);min-height:480px;overflow:hidden;background:#111}
-.slides{position:absolute;inset:0}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none}
-.slide.on{opacity:1;pointer-events:auto}
-.slide>*{width:100%;height:100%;object-fit:cover}
-.slide .ph{height:100%}
-.hero .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,14,.72) 0%,rgba(10,12,14,.28) 55%,rgba(10,12,14,.1) 100%)}
-.hero-copy{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;color:#fff}
-.hero-copy h1{font-family:Archivo,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:.94;
-  font-size:clamp(40px,7vw,84px);text-transform:uppercase;max-width:12ch}
-.hero-copy p{margin-top:18px;max-width:46ch;color:#D6D8D6}
-.hero-buy{display:flex;align-items:center;gap:22px;margin-top:34px;flex-wrap:wrap}
-.price{font-family:Archivo,sans-serif;font-weight:600;font-size:26px}
-.btn{display:inline-block;padding:14px 30px;border-radius:2px;font-weight:600;font-size:15px;
-  background:#fff;color:var(--ink);border:1px solid #fff;transition:background .2s,color .2s}
-.btn:hover{background:transparent;color:#fff}
-.btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
-.btn-dark:hover{background:transparent;color:var(--ink)}
-.hero-nav{position:absolute;bottom:28px;right:24px;display:flex;gap:8px;z-index:5}
-.hero-nav button{width:34px;height:34px;border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:50%;
-  display:grid;place-items:center;transition:background .2s}
-.hero-nav button:hover{background:rgba(255,255,255,.18)}
-.dots{position:absolute;bottom:34px;left:24px;display:flex;gap:8px;z-index:5}
-.dots button{width:30px;height:3px;background:rgba(255,255,255,.35)}
-.dots button[aria-current="true"]{background:#fff}
-.hero-specs{position:absolute;left:0;right:0;bottom:0;z-index:4;border-top:1px solid rgba(255,255,255,.16);
-  background:rgba(10,12,14,.35);backdrop-filter:blur(4px)}
-.hero-specs .wrap{display:flex;gap:40px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px;color:#E8E9E7;font-size:13px}
-.hero-specs b{font-family:Archivo,sans-serif;font-weight:600;font-size:15px;display:block}
-.hero-specs span{color:#A9AEAB}
+/* ===================== 01 HERO ===================== */
+.hero{position:relative;height:calc(100vh - var(--nav-h));min-height:560px;max-height:860px;overflow:hidden;background:#1C2021}
+.hero-slides{position:absolute;inset:0}
+.hs{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+.hs.on{opacity:1}
+.hs>*{width:100%;height:100%;object-fit:cover}
+.hs .ph{height:100%}
+.hero-veil{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(16,19,20,.55) 0%,rgba(16,19,20,.15) 40%,rgba(16,19,20,.8) 100%)}
+.hero-in{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;
+  padding-bottom:38px;color:var(--white)}
+.hero-in h1{font-size:clamp(38px,6.6vw,80px);text-transform:uppercase;letter-spacing:-.03em}
+.hero-t1{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#C9CFCF;margin-bottom:16px}
+.hero-t2{margin-top:16px;max-width:44ch;color:#DDE1E1}
+.hero-cta{margin-top:26px;display:inline-block;align-self:flex-start;
+  background:var(--white);color:var(--ink);padding:14px 40px;font-weight:500;font-size:14px;letter-spacing:.12em}
+.hero-cta:hover{background:var(--khaki);color:var(--white)}
 
-/* ---------- sections ---------- */
-section{padding:88px 0}
-.sec-head{max-width:70ch;margin-bottom:44px}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:44px;
+  border-top:1px solid rgba(255,255,255,.28);padding-top:22px}
+.spec{display:flex;gap:14px;align-items:flex-start}
+.spec svg{width:30px;height:30px;flex:none;stroke:var(--white);fill:none;stroke-width:1.3}
+.spec b{display:block;font-variation-settings:'opsz' 32;font-weight:600;font-size:17px}
+.spec span{font-size:13px;color:#B7BEBE;line-height:1.45;display:block;margin-top:3px}
 
-.colors{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.color figure .ph{aspect-ratio:3/4}
-.color figcaption{margin-top:14px;display:flex;justify-content:space-between;align-items:baseline;
-  border-top:1px solid var(--line);padding-top:12px}
-.color small{color:var(--ash)}
+.hero-arrows{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);z-index:4;
+  display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
+.hero-arrows button{pointer-events:auto;width:44px;height:44px;border:1px solid rgba(255,255,255,.45);
+  color:#fff;display:grid;place-items:center;font-size:20px}
+.hero-arrows button:hover{background:rgba(255,255,255,.16)}
+.hero-dots{position:absolute;top:26px;left:28px;z-index:4;display:flex;gap:6px}
+.hero-dots button{width:34px;height:2px;background:rgba(255,255,255,.4)}
+.hero-dots button[aria-current="true"]{background:#fff}
 
-.statement{background:var(--slate);color:#fff;padding:0}
-.statement .grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch}
-.statement .txt{padding:76px 56px}
-.statement h2{font-size:clamp(26px,3.4vw,40px)}
-.statement p{color:#B9BDBB;margin-top:18px;max-width:44ch}
-.statement .ph{min-height:420px}
+/* ===================== 02 ПРОДУКТ ===================== */
+.products{background:var(--fog)}
+.prod-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px}
+.rail-btns{display:flex;gap:8px}
+.rail-btns button{width:42px;height:42px;border:1px solid var(--line);background:var(--white);font-size:18px}
+.rail-btns button:hover{border-color:var(--ink)}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/3);gap:24px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px}
+.rail::-webkit-scrollbar{height:0}
+.card{scroll-snap-align:start;background:var(--white);border:1px solid var(--line);cursor:pointer;
+  display:flex;flex-direction:column;transition:border-color .2s}
+.card:hover{border-color:var(--ink)}
+.card .shot{aspect-ratio:3/4;overflow:hidden}
+.card .shot .ph{height:100%}
+.card .cbody{padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px}
+.card h3{font-size:17px}
+.card .col{font-size:14px;color:var(--steel);display:flex;align-items:center;gap:8px}
+.dot{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.18);flex:none}
+.card .price{margin-top:8px;font-variation-settings:'opsz' 32;font-weight:600;font-size:19px}
 
-.tech{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
-.layers{display:grid;gap:10px}
-.layer{display:flex;align-items:center;gap:16px;border:1px solid var(--line);padding:16px 18px;background:#fff}
-.layer .num{font-family:Archivo,sans-serif;font-weight:600;color:var(--olive);font-size:14px;min-width:56px}
-.layer p{font-size:14px;color:var(--ash);margin-top:2px}
-.spec-list{display:grid;gap:22px}
-.spec-list div{border-left:2px solid var(--olive);padding-left:16px}
-.spec-list p{color:var(--ash);font-size:14px;margin-top:4px}
+/* ===================== 03 СЦЕНАРИИ ===================== */
+.scen{position:relative;height:min(78vh,680px);min-height:460px;overflow:hidden;background:#1C2021;padding:0}
+.sc{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+.sc.on{opacity:1}
+.sc .med{position:absolute;inset:0}
+.sc .med>*{width:100%;height:100%;object-fit:cover}
+.sc .med .ph{height:100%}
+.sc .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,18,.5),rgba(14,17,18,.1) 45%,rgba(14,17,18,.8))}
+.sc-in{position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between;
+  padding-top:56px;padding-bottom:46px;color:#fff}
+.sc-in h2{max-width:16ch}
+.sc-box{max-width:46ch}
+.sc-box h3{font-size:22px;margin-bottom:10px}
+.sc-box p{color:#D5D9D9}
+.scen-dots{position:absolute;right:28px;bottom:46px;z-index:4;display:flex;gap:6px}
+.scen-dots button{width:34px;height:2px;background:rgba(255,255,255,.4)}
+.scen-dots button[aria-current="true"]{background:#fff}
 
-.details{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.details .ph{aspect-ratio:1/1}
-.details h3{margin-top:14px;font-size:16px}
-.details p{font-size:14px;color:var(--ash);margin-top:6px}
+/* ===================== 04 ТЕХНОЛОГИЯ ===================== */
+.tech-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.tech-list div{border-top:1px solid var(--line);padding:20px 0}
+.tech-list div:last-child{border-bottom:1px solid var(--line)}
+.tech-list b{font-variation-settings:'opsz' 32;font-weight:600;font-size:16px;letter-spacing:.06em}
+.tech-list p{color:var(--steel);font-size:14px;margin-top:4px}
 
-.fit{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.fit .ph{aspect-ratio:4/5}
-.fit-note{margin-top:20px;font-size:14px;color:var(--ash);display:flex;gap:28px;flex-wrap:wrap}
+/* ===================== 05 КОНСТРУКЦИЯ ===================== */
+.build{background:var(--fog)}
+.build-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.build-left p{color:var(--steel);margin-top:16px}
+.det-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,calc((100% - 40px)/2.6));gap:20px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth}
+.det-rail::-webkit-scrollbar{height:0}
+.det{scroll-snap-align:start;background:var(--white);border:1px solid var(--line)}
+.det .ph{aspect-ratio:4/5}
+.det .cap{padding:16px 18px 20px}
+.det .cap p{font-size:14px;color:var(--steel);margin-top:6px}
+.build-nav{display:flex;gap:8px;margin-top:22px}
+.build-nav button{width:42px;height:42px;border:1px solid var(--line);background:var(--white);font-size:18px}
+.build-nav button:hover{border-color:var(--ink)}
 
-/* size table */
-.sizes{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px;background:#fff}
-th,td{border:1px solid var(--line);padding:12px 14px;text-align:left}
-th{font-family:Archivo,sans-serif;font-weight:600;background:#F4F4F0}
-tbody tr:hover{background:#FAFAF6}
+/* ===================== 06 КОМПЛЕКТАЦИЯ ===================== */
+.kit-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:48px;align-items:center}
+.kit-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kit-shots .ph{aspect-ratio:3/4}
+.kit-list{list-style:none;margin-top:22px}
+.kit-list li{border-top:1px solid var(--line);padding:16px 0;display:flex;gap:14px;align-items:baseline}
+.kit-list li:last-child{border-bottom:1px solid var(--line)}
+.kit-list span{color:var(--khaki);font-size:13px;font-variant-numeric:tabular-nums}
 
-/* reviews */
-.reviews{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start}
-.score{font-family:Archivo,sans-serif;font-weight:800;font-size:56px;line-height:1}
-.stars{color:var(--olive);letter-spacing:2px;margin:8px 0 18px}
-.bars{display:grid;gap:8px;font-size:13px;color:var(--ash)}
-.bars div{display:flex;align-items:center;gap:10px}
-.bars i{flex:1;height:4px;background:var(--line);position:relative;font-style:normal}
-.bars i b{position:absolute;inset:0;background:var(--olive);width:var(--w)}
-.rlist{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.review{border-top:1px solid var(--line);padding-top:18px}
-.review .who{display:flex;justify-content:space-between;font-size:13px;color:var(--ash);margin-bottom:8px}
-.review p{font-size:15px}
-
-/* faq */
-.faq{max-width:820px}
-.q{border-bottom:1px solid var(--line)}
-.q summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;gap:20px;
-  font-family:Archivo,sans-serif;font-weight:500;font-size:17px}
+/* ===================== 07 FAQ ===================== */
+.faq{max-width:900px}
+.q{border-top:1px solid var(--line)}
+.q:last-of-type{border-bottom:1px solid var(--line)}
+.q summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;gap:24px;justify-content:space-between;
+  font-variation-settings:'opsz' 32;font-weight:500;font-size:17px}
 .q summary::-webkit-details-marker{display:none}
-.q summary::after{content:"+";color:var(--ash);font-size:20px;transition:transform .2s}
+.q summary::after{content:"+";color:var(--khaki);font-size:22px;line-height:1}
 .q[open] summary::after{content:"–"}
-.q p{padding:0 0 20px;color:var(--ash);max-width:70ch}
+.q .a{padding:0 0 22px;color:var(--steel);max-width:70ch}
 
-/* promises */
-.promises{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;border-top:1px solid var(--line);padding-top:44px}
-.promise h3{margin-bottom:6px}
-.promise p{font-size:14px;color:var(--ash)}
+/* ===================== 08 ОТЗЫВЫ ===================== */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rev{background:var(--khaki);color:#F2F4F0;padding:34px 30px;min-height:230px;
+  display:flex;flex-direction:column;justify-content:flex-start}
+.rev p{font-size:17px;line-height:1.55}
+.rev .mark{font-variation-settings:'opsz' 32;font-size:34px;line-height:1;margin-bottom:14px;color:rgba(255,255,255,.5)}
 
-/* closer + footer */
-.closer{background:var(--slate);color:#fff;text-align:center;padding:96px 0}
-.closer h2{font-size:clamp(28px,4.6vw,52px)}
-.closer p{color:#B9BDBB;margin:16px auto 30px;max-width:46ch}
-footer{padding:52px 0;font-size:14px;color:var(--ash)}
-.fgrid{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap}
-.fgrid a{display:block;padding:3px 0}
-.fgrid a:hover{color:var(--ink)}
-footer .brand{color:var(--ink);margin-bottom:12px}
+/* ===================== ФУТЕР ===================== */
+footer{background:var(--ink);color:#C6CBCB;padding:72px 0 40px;font-size:14px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.fbrand{font-variation-settings:'opsz' 32;font-weight:700;font-size:24px;letter-spacing:.16em;color:#fff}
+.fslogan{margin-top:12px;color:#9BA2A2;max-width:26ch}
+footer h4{color:#fff;font-size:13px;letter-spacing:.14em;margin-bottom:14px;font-weight:500}
+footer a,footer button{display:block;padding:5px 0;color:#C6CBCB;text-align:left}
+footer a:hover,footer button:hover{color:#fff}
+.fbot{margin-top:52px;border-top:1px solid #2C3132;padding-top:22px;color:#767C7D;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
-@media (max-width:900px){
-  nav{display:none}
-  .burger{display:block}
-  .statement .grid,.tech,.reviews{grid-template-columns:1fr;gap:0}
-  .statement .txt{padding:52px 24px}
-  .tech,.reviews{gap:36px}
-  .details{grid-template-columns:repeat(2,1fr)}
-  .rlist{grid-template-columns:1fr}
-  .promises{grid-template-columns:1fr;gap:22px}
-  section{padding:64px 0}
-  .hero-specs{display:none}
+/* ===================== МОДАЛКИ ===================== */
+.ov{position:fixed;inset:0;background:rgba(16,19,20,.55);z-index:100;opacity:0;pointer-events:none;transition:opacity .25s}
+.ov.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:110;background:var(--white);opacity:0;pointer-events:none;transition:transform .3s ease,opacity .25s}
+.sheet.on{opacity:1;pointer-events:auto}
+.modal{top:50%;left:50%;transform:translate(-50%,-46%);width:min(1080px,92vw);max-height:88vh;overflow:auto}
+.modal.on{transform:translate(-50%,-50%)}
+.modal.narrow{width:min(620px,92vw)}
+.mhead{position:sticky;top:0;background:var(--white);display:flex;justify-content:space-between;align-items:center;
+  padding:20px 28px;border-bottom:1px solid var(--line);z-index:2}
+.mhead h3{font-size:18px}
+.x{font-size:24px;line-height:1;width:36px;height:36px;display:grid;place-items:center}
+.x:hover{background:var(--fog)}
+.mbody{padding:28px}
+
+.pcard{display:grid;grid-template-columns:1.05fr .95fr;gap:36px}
+.pshots{display:grid;gap:12px;align-content:start}
+.pshots .main{aspect-ratio:3/4}
+.pthumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pthumbs .ph{aspect-ratio:1/1;cursor:pointer}
+.pinfo h2{font-size:30px}
+.sku{color:var(--steel);font-size:13px;margin-top:8px;letter-spacing:.06em}
+.pprice{font-variation-settings:'opsz' 32;font-weight:600;font-size:28px;margin:20px 0 26px}
+.opt-label{font-size:13px;color:var(--steel);margin-bottom:10px}
+.colors-row{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.cbtn{display:flex;align-items:center;gap:9px;border:1px solid var(--line);padding:8px 14px;font-size:14px}
+.cbtn[aria-pressed="true"]{border-color:var(--ink)}
+.cbtn i{width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.18);display:block}
+.sizes-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.sbtn{min-width:52px;border:1px solid var(--line);padding:11px 12px;font-size:14px;text-align:center}
+.sbtn[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--white)}
+.linkish{color:var(--khaki);border-bottom:1px solid var(--khaki);font-size:14px;padding-bottom:1px}
+.model-note{font-size:13px;color:var(--steel);margin:18px 0 24px}
+.add{width:100%;background:var(--ink);color:var(--white);padding:16px;font-size:14px;letter-spacing:.12em;font-weight:500}
+.add:hover{background:var(--khaki)}
+.pdesc{margin-top:28px;color:var(--steel);font-size:15px}
+.pdesc p+p{margin-top:12px}
+.specs-inline{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.specs-inline span{border:1px solid var(--line);padding:6px 12px;font-size:12px;letter-spacing:.1em;color:var(--ink)}
+.acc{margin-top:26px}
+.acc details{border-top:1px solid var(--line)}
+.acc details:last-child{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;font-size:15px;font-weight:500}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";color:var(--khaki)}
+.acc details[open] summary::after{content:"–"}
+.acc .in{padding-bottom:18px;color:var(--steel);font-size:14px}
+.acc .in p+p{margin-top:6px}
+
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--line);padding:11px 12px;text-align:left;font-variant-numeric:tabular-nums}
+th{background:var(--fog);font-weight:500}
+
+.drawer{top:0;right:0;height:100vh;width:min(460px,100vw);transform:translateX(24px);display:flex;flex-direction:column}
+.drawer.on{transform:translateX(0)}
+.citems{flex:1;overflow:auto;padding:22px 28px}
+.citem{display:grid;grid-template-columns:88px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.citem .ph{aspect-ratio:3/4}
+.citem h4{font-size:15px;font-weight:600}
+.citem .meta{font-size:13px;color:var(--steel);margin-top:4px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);width:max-content;margin-top:10px}
+.qty button{width:32px;height:32px}
+.qty span{min-width:34px;text-align:center;font-variant-numeric:tabular-nums;font-size:14px}
+.citem .row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:10px}
+.citem .price{font-variation-settings:'opsz' 32;font-weight:600}
+.rm{font-size:13px;color:var(--steel);border-bottom:1px solid var(--line)}
+.rm:hover{color:var(--ink)}
+.cfoot{border-top:1px solid var(--line);padding:22px 28px;background:var(--white)}
+.total{display:flex;justify-content:space-between;font-variation-settings:'opsz' 32;font-weight:600;font-size:20px;margin-bottom:18px}
+.cfoot .add{margin-bottom:10px}
+.cont{width:100%;padding:14px;border:1px solid var(--line);font-size:14px}
+.cont:hover{border-color:var(--ink)}
+.empty{color:var(--steel);text-align:center;padding:60px 0;font-size:15px}
+
+.brand-body p{color:var(--steel);margin-bottom:14px;max-width:66ch}
+.brand-body .big{aspect-ratio:21/9;margin-top:24px}
+.contacts-list{display:grid;gap:18px}
+.contacts-list div{border-top:1px solid var(--line);padding-top:14px}
+.contacts-list b{font-size:13px;letter-spacing:.1em;color:var(--steel);font-weight:500;display:block;margin-bottom:4px}
+
+/* ===================== АДАПТИВ ===================== */
+@media (max-width:1080px){
+  .rail{grid-auto-columns:calc((100% - 24px)/2)}
+  .tech-grid,.build-grid,.kit-grid,.pcard{grid-template-columns:1fr;gap:36px}
+  .revs{grid-template-columns:1fr 1fr}
 }
-@media (max-width:620px){
-  .colors,.fit{grid-template-columns:1fr}
+@media (max-width:820px){
+  .menu{display:none}
+  .burger{display:block}
+  .bar{grid-template-columns:1fr auto}
+  .specs{grid-template-columns:1fr 1fr;gap:18px}
+  .spec span{display:none}
+  section{padding:64px 0}
+  .rail{grid-auto-columns:82%}
+  .det-rail{grid-auto-columns:78%}
+  .kit-shots{grid-template-columns:1fr}
+  .kit-shots .ph:nth-child(n+2){display:none}
+  .revs{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr;gap:32px}
+  .hero-in{padding-bottom:28px}
+  .modal{width:100vw;max-height:100vh;height:100vh;top:0;left:0;transform:translateY(20px)}
+  .modal.on{transform:translateY(0)}
+  .mbody{padding:20px}
 }
 @media (prefers-reduced-motion:reduce){
-  *{transition:none!important;scroll-behavior:auto}
+  *{transition:none!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
 <body>
 
+<!-- ===================== ХЭДЕР ===================== -->
 <header>
   <div class="wrap bar">
-    <a href="#" class="brand">ТЁПЛО</a>
-    <nav>
-      <a href="#colors">Худи</a>
-      <a href="#tech">Материал</a>
-      <a href="#sizes">Размеры</a>
-      <a href="#delivery">Доставка</a>
+    <a href="#hero" class="logo" aria-label="SWIMMER — на главную">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M2 20c3.5 0 3.5-3 7-3s3.5 3 7 3 3.5-3 7-3 3.5 3 7 3" fill="none" stroke="#191D1E" stroke-width="2"/>
+        <path d="M2 26c3.5 0 3.5-3 7-3s3.5 3 7 3 3.5-3 7-3 3.5 3 7 3" fill="none" stroke="#575E43" stroke-width="2"/>
+        <circle cx="21" cy="9" r="3" fill="#191D1E"/>
+      </svg>
+      SWIMMER
+    </a>
+    <nav class="menu">
+      <a href="#product">Каталог</a>
+      <button data-open="brand">О бренде</button>
+      <button data-open="contacts">Контакты</button>
     </nav>
-    <div class="right">
-      <button class="burger" aria-label="Меню">☰</button>
-      <button class="cart-btn">Корзина · 0</button>
+    <div class="tools">
+      <button class="burger" data-open="contacts" aria-label="Меню">☰</button>
+      <button class="cart-open" data-open="cart">Корзина <span class="num" id="cartCount">0</span></button>
     </div>
   </div>
 </header>
 
-<!-- ===== HERO SLIDER: сюда вставляются фото и видео ===== -->
-<section class="hero" id="hero" aria-label="Промо">
-  <div class="slides" id="slides"><!-- слайды рендерит скрипт --></div>
-  <div class="veil"></div>
+<!-- ===================== 01 — HERO ===================== -->
+<section class="hero" id="hero" aria-label="Речная парка">
+  <div class="hero-slides" id="heroSlides"></div>
+  <div class="hero-veil"></div>
 
-  <div class="wrap hero-copy">
-    <h1>Худи<br>Heavy 400</h1>
-    <p>Плотный хлопковый футер, который не вытягивается после третьей стирки. Три цвета, посадка чуть свободнее обычной.</p>
-    <div class="hero-buy">
-      <span class="price">4 990 ₽</span>
-      <a href="#sizes" class="btn">Выбрать размер</a>
-    </div>
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-arrows">
+    <button id="hPrev" aria-label="Предыдущий слайд">‹</button>
+    <button id="hNext" aria-label="Следующий слайд">›</button>
   </div>
 
-  <div class="dots" id="dots"></div>
-  <div class="hero-nav">
-    <button id="prev" aria-label="Предыдущий слайд">‹</button>
-    <button id="next" aria-label="Следующий слайд">›</button>
-  </div>
+  <div class="wrap hero-in">
+    <div class="hero-t1">Надёжные вещи для отдыха у воды</div>
+    <h1>Речная<br>парка</h1>
+    <p class="hero-t2">Тёплая мембранная парка-плед для дождя, ветра и холодной погоды.</p>
+    <a href="#product" class="hero-cta">ВЫБРАТЬ</a>
 
-  <div class="hero-specs">
-    <div class="wrap">
-      <div><b>400 г/м²</b><span>плотность футера</span></div>
-      <div><b>100% хлопок</b><span>трёхнитка с начёсом</span></div>
-      <div><b>3 цвета</b><span>графит, олива, молоко</span></div>
-      <div><b>XS–XXL</b><span>унисекс</span></div>
+    <div class="specs">
+      <div class="spec">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4.2 5.5 7 5.5 10a5.5 5.5 0 1 1-11 0C6.5 10 9 7.2 12 3z"/><path d="M9.5 20.5h9"/></svg>
+        <div><b>10K / 10K</b><span>водостойкость снаружи, отведение пара изнутри</span></div>
+      </div>
+      <div class="spec">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 9h17M3.5 15h17M9 3.5v17M15 3.5v17"/></svg>
+        <div><b>140 g/m</b><span>прочная плотная ткань</span></div>
+      </div>
+      <div class="spec">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15.5c2.2-2.6 5-3.9 8-3.9s5.8 1.3 8 3.9"/><circle cx="8.5" cy="7" r="1.6"/><circle cx="15" cy="5.6" r="1.6"/><path d="M4 20h16"/></svg>
+        <div><b>DWR</b><span>пропитка от дождя и снега</span></div>
+      </div>
+      <div class="spec">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5c1.6-2 3.2-2 4.8 0s3.2 2 4.8 0 3.2-2 4.8 0"/><path d="M4 13c1.6-2 3.2-2 4.8 0s3.2 2 4.8 0 3.2-2 4.8 0"/><path d="M4 17.5c1.6-2 3.2-2 4.8 0s3.2 2 4.8 0 3.2-2 4.8 0"/></svg>
+        <div><b>Wellsoft</b><span>подкладка мягкая, как плед</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ЦВЕТА ===== -->
-<section id="colors">
+<!-- ===================== 02 — ПРОДУКТ ===================== -->
+<section class="products" id="product">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Одна модель, три цвета</h2>
-      <p class="lede">Крой и плотность одинаковые — меняется только цвет полотна. Все три красятся в одной партии, чтобы оттенок был стабильным.</p>
-    </div>
-    <div class="colors">
-      <div class="color">
-        <figure><div class="ph">фото — графит</div></figure>
-        <figcaption><h3>Графит</h3><small>в наличии</small></figcaption>
+    <div class="prod-top">
+      <div>
+        <h2>Надёжно снаружи.<br>Уютно внутри.</h2>
+        <p class="lede">Одна модель в трёх цветах. Нажмите на карточку, чтобы выбрать размер и посмотреть детали.</p>
       </div>
-      <div class="color">
-        <figure><div class="ph">фото — олива</div></figure>
-        <figcaption><h3>Олива</h3><small>в наличии</small></figcaption>
-      </div>
-      <div class="color">
-        <figure><div class="ph">фото — молоко</div></figure>
-        <figcaption><h3>Молоко</h3><small>под заказ, 7 дней</small></figcaption>
+      <div class="rail-btns">
+        <button id="pPrev" aria-label="Прокрутить назад">‹</button>
+        <button id="pNext" aria-label="Прокрутить вперёд">›</button>
       </div>
     </div>
+    <div class="rail" id="rail"></div>
   </div>
 </section>
 
-<!-- ===== ТЁМНАЯ ПЛАШКА ===== -->
-<section class="statement">
-  <div class="grid">
-    <div class="txt">
-      <h2>Для города.<br>Для холода.<br>Для каждого дня.</h2>
-      <p>Худи, которое надевают утром и снимают вечером: под куртку зимой, само по себе — весной. Плотность 400 держит форму, а начёс внутри не сваливается в катышки.</p>
-    </div>
-    <div class="ph" data-tone="dark">фото — образ на улице</div>
+<!-- ===================== 03 — СЦЕНАРИИ ===================== -->
+<section class="scen" id="scenarios" aria-label="Сценарии использования">
+  <div id="scenSlides"></div>
+  <div class="wrap sc-in">
+    <h2>Вода. Природа. Свобода.</h2>
+    <div class="sc-box" id="scBox"></div>
   </div>
+  <div class="scen-dots" id="scenDots"></div>
 </section>
 
-<!-- ===== МАТЕРИАЛ ===== -->
+<!-- ===================== 04 — ТЕХНОЛОГИЯ ===================== -->
 <section id="tech">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Что внутри полотна</h2>
-      <p class="lede">Трёхнитка с начёсом — три слоя пряжи вместо двух. Отсюда вес, плотность и то, что вещь не просвечивает.</p>
+      <h2>Технологии и материалы</h2>
+      <p class="lede">Трёхслойная мембрана работает в обе стороны: не пропускает воду снаружи и выводит пар изнутри.</p>
     </div>
-    <div class="tech">
-      <div class="layers">
-        <div class="layer"><span class="num">Лицо</span><div><h3>Гладкое переплетение</h3><p>Ровная поверхность, на которой чисто ложится печать и вышивка.</p></div></div>
-        <div class="layer"><span class="num">Основа</span><div><h3>Несущая нить</h3><p>Держит форму плеч и низа, не даёт полотну тянуться вниз.</p></div></div>
-        <div class="layer"><span class="num">Изнанка</span><div><h3>Начёс</h3><p>Мягкий ворс, который удерживает тепло и не колется на голое тело.</p></div></div>
-      </div>
-      <div class="spec-list">
-        <div><h3>400 г/м²</h3><p>Плотность выше средней: типовое худи — 280–320 г/м².</p></div>
-        <div><h3>Хлопок без синтетики</h3><p>Не электризуется и не липнет, но сохнет дольше смесового.</p></div>
-        <div><h3>Декатированное полотно</h3><p>Усадку даёт до пошива, поэтому после стирки размер остаётся своим.</p></div>
-        <div><h3>Плоские швы</h3><p>Не натирают под рюкзаком и не выделяются под верхней одеждой.</p></div>
+    <div class="tech-grid">
+      <svg viewBox="0 0 720 390" role="img" aria-label="Схема работы трёхслойной мембраны">
+        <defs>
+          <marker id="up" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0 9 L5 1 L10 9" fill="none" stroke="#191D1E" stroke-width="1.6"/>
+          </marker>
+        </defs>
+
+        <g stroke="#575E43" stroke-width="1.6" fill="none">
+          <path d="M110 18c0 0 8 10 8 15a8 8 0 0 1-16 0c0-5 8-15 8-15z"/>
+          <path d="M250 8c0 0 8 10 8 15a8 8 0 0 1-16 0c0-5 8-15 8-15z"/>
+          <path d="M420 20c0 0 8 10 8 15a8 8 0 0 1-16 0c0-5 8-15 8-15z"/>
+          <path d="M560 6c0 0 8 10 8 15a8 8 0 0 1-16 0c0-5 8-15 8-15z"/>
+        </g>
+        <g stroke="#575E43" stroke-width="1.4" fill="none" stroke-dasharray="4 5">
+          <path d="M108 50c-16 10-26 24-30 40"/>
+          <path d="M424 52c16 10 26 24 30 40"/>
+        </g>
+        <text x="40" y="74" font-family="Inter,sans-serif" font-size="13" fill="#7E8688">дождь и снег скатываются</text>
+
+        <rect x="40" y="92" width="640" height="46" fill="#DDE1E1"/>
+        <path d="M40 92h640" stroke="#191D1E" stroke-width="2"/>
+        <text x="58" y="121" font-family="Inter,sans-serif" font-size="15" font-weight="600" fill="#191D1E">1 — ВЕРХ 140 g/m + DWR</text>
+
+        <rect x="40" y="138" width="640" height="62" fill="#575E43"/>
+        <text x="58" y="167" font-family="Inter,sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">2 — МЕМБРАНА ТПУ 10K / 10K</text>
+        <text x="58" y="189" font-family="Inter,sans-serif" font-size="12.5" fill="#D3D8CC">поры меньше капли воды, но больше молекулы пара</text>
+
+        <rect x="40" y="200" width="640" height="52" fill="#E7EAEA"/>
+        <text x="58" y="232" font-family="Inter,sans-serif" font-size="15" font-weight="600" fill="#191D1E">3 — ПОДКЛАДКА WELLSOFT</text>
+        <path d="M40 252h640" stroke="#191D1E" stroke-width="2"/>
+
+        <g stroke="#191D1E" stroke-width="1.5" fill="none">
+          <path d="M200 340V78" stroke-dasharray="3 5"/>
+          <path d="M330 348V68" stroke-dasharray="3 5"/>
+          <path d="M470 340V78" stroke-dasharray="3 5"/>
+          <path d="M200 320v-8" marker-end="url(#up)"/>
+          <path d="M330 328v-8" marker-end="url(#up)"/>
+          <path d="M470 320v-8" marker-end="url(#up)"/>
+        </g>
+        <text x="196" y="376" font-family="Inter,sans-serif" font-size="13" fill="#7E8688">пар от тела уходит наружу</text>
+      </svg>
+
+      <div class="tech-list">
+        <div><b>3L MEMBRANE</b><p>Три слоя соединены в одно полотно: верх, мембрана и подкладка не расходятся при движении.</p></div>
+        <div><b>10K / 10K</b><p>Столб воды 10 000 мм и такая же паропроницаемость — держит ливень и не превращается в парник.</p></div>
+        <div><b>140 G/M²</b><p>Плотная ткань верха: не рвётся о ветки и не парусит на ветру.</p></div>
+        <div><b>DWR</b><p>Пропитка заставляет воду скатываться каплями. Обновляется стиркой со спецсредством.</p></div>
+        <div><b>WELLSOFT</b><p>Подкладка с мягким ворсом — по ощущению ближе к пледу, чем к куртке.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ДЕТАЛИ ===== -->
+<!-- ===================== 05 — КОНСТРУКЦИЯ ===================== -->
+<section class="build">
+  <div class="wrap build-grid">
+    <div class="build-left">
+      <h2>Продуманная конструкция</h2>
+      <p>Свободный крой поверх второго слоя, удлинённая спинка и высокий воротник. Парка садится так, чтобы в ней можно было грести, идти и сидеть у костра, не поправляя её каждые пять минут.</p>
+      <p>Все точки, которые первыми промокают и первыми изнашиваются, усилены и продублированы.</p>
+      <div class="build-nav">
+        <button id="dPrev" aria-label="Прокрутить назад">‹</button>
+        <button id="dNext" aria-label="Прокрутить вперёд">›</button>
+      </div>
+    </div>
+    <div class="det-rail" id="detRail"></div>
+  </div>
+</section>
+
+<!-- ===================== 06 — КОМПЛЕКТАЦИЯ ===================== -->
+<section>
+  <div class="wrap kit-grid">
+    <div class="kit-shots">
+      <div class="ph">фото — парка</div>
+      <div class="ph">фото — мешок для хранения</div>
+      <div class="ph">фото — зип-пакет</div>
+    </div>
+    <div>
+      <h2>В комплекте</h2>
+      <ul class="kit-list">
+        <li><span class="num">01</span>Парка</li>
+        <li><span class="num">02</span>Фирменный непромокаемый прочный мешок для хранения</li>
+        <li><span class="num">03</span>Брендированный зип-пакет</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 07 — FAQ ===================== -->
 <section>
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Продумано до мелочей</h2>
-      <p class="lede">Места, где худи обычно сдаётся первым: капюшон, манжеты, карман и горловина.</p>
-    </div>
-    <div class="details">
-      <div>
-        <div class="ph">макро — капюшон</div>
-        <h3>Двухслойный капюшон</h3>
-        <p>Держит объём и не падает на глаза, даже без шнурка.</p>
-      </div>
-      <div>
-        <div class="ph">макро — манжет</div>
-        <h3>Плотный манжет</h3>
-        <p>Широкая резинка с эластаном, не растягивается за сезон.</p>
-      </div>
-      <div>
-        <div class="ph">макро — карман</div>
-        <h3>Карман кенгуру</h3>
-        <p>Глубина под ладонь целиком, вход укреплён закрепками.</p>
-      </div>
-      <div>
-        <div class="ph">макро — горловина</div>
-        <h3>Тесьма по горловине</h3>
-        <p>Шов закрыт лентой — воротник не вытягивается со временем.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ПОСАДКА ===== -->
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Посадка</h2>
-      <p class="lede">Свободнее классического кроя, но без оверсайза: плечо приспущено на 2 см, низ заканчивается по линии бедра.</p>
-    </div>
-    <div class="fit">
-      <div class="ph">фото — спереди</div>
-      <div class="ph">фото — сбоку</div>
-      <div class="ph">фото — сзади</div>
-    </div>
-    <div class="fit-note">
-      <span>Модель: рост 182 см, обхват груди 96 см</span>
-      <span>На фото размер L</span>
-      <span>Между размерами — берите меньший</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===== РАЗМЕРЫ ===== -->
-<section id="sizes">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Таблица размеров</h2>
-      <p class="lede">Мерки сняты по изделию, разложенному на столе, погрешность ±1 см. Сравните с худи, которое вам уже нравится.</p>
-    </div>
-    <div class="sizes">
-      <table>
-        <thead>
-          <tr><th>Размер</th><th>Рост, см</th><th>Грудь, см</th><th>Длина, см</th><th>Рукав, см</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>XS</td><td>160–168</td><td>102</td><td>64</td><td>58</td></tr>
-          <tr><td>S</td><td>166–174</td><td>108</td><td>66</td><td>60</td></tr>
-          <tr><td>M</td><td>172–180</td><td>114</td><td>68</td><td>62</td></tr>
-          <tr><td>L</td><td>178–186</td><td>120</td><td>70</td><td>64</td></tr>
-          <tr><td>XL</td><td>184–192</td><td>126</td><td>72</td><td>66</td></tr>
-          <tr><td>XXL</td><td>188–196</td><td>132</td><td>74</td><td>68</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ОТЗЫВЫ ===== -->
-<section>
-  <div class="wrap">
-    <div class="sec-head"><h2>Отзывы покупателей</h2></div>
-    <div class="reviews">
-      <div>
-        <div class="score">4,8</div>
-        <div class="stars">★★★★★</div>
-        <div class="bars">
-          <div><span>5</span><i><b style="--w:82%"></b></i><span>128</span></div>
-          <div><span>4</span><i><b style="--w:12%"></b></i><span>19</span></div>
-          <div><span>3</span><i><b style="--w:4%"></b></i><span>6</span></div>
-          <div><span>2</span><i><b style="--w:1%"></b></i><span>2</span></div>
-          <div><span>1</span><i><b style="--w:1%"></b></i><span>1</span></div>
-        </div>
-      </div>
-      <div class="rlist">
-        <div class="review">
-          <div class="who"><span>Артём К.</span><span>★★★★★</span></div>
-          <p>Взял оливу, размер L при росте 180. Село ровно так, как на фото. После двух стирок не село и не растянулось.</p>
-        </div>
-        <div class="review">
-          <div class="who"><span>Мария С.</span><span>★★★★★</span></div>
-          <p>Плотность реально чувствуется, это не типичная тонкая толстовка. Внутри мягко, шею не трёт.</p>
-        </div>
-        <div class="review">
-          <div class="who"><span>Данил В.</span><span>★★★★☆</span></div>
-          <p>Всё нравится, кроме сушки — хлопок сохнет долго. Но это к материалу, а не к вещи.</p>
-        </div>
-        <div class="review">
-          <div class="who"><span>Ольга Р.</span><span>★★★★★</span></div>
-          <p>Заказывала графит, пришло за три дня. Карман глубокий, капюшон держит форму — то, что искала.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section id="delivery">
-  <div class="wrap">
-    <div class="sec-head"><h2>Частые вопросы</h2></div>
+    <div class="sec-head"><h2>Часто задаваемые вопросы</h2></div>
     <div class="faq">
-      <details class="q"><summary>Как стирать, чтобы не село?</summary><p>Машинная стирка при 30 °C, без отжима на высоких оборотах. Полотно декатировано до пошива, поэтому при соблюдении режима усадки не будет.</p></details>
-      <details class="q"><summary>Как понять свой размер?</summary><p>Разложите на столе худи, посадка которого вас устраивает, и сравните ширину груди и длину с таблицей выше. Если попадаете между размерами — берите меньший.</p></details>
-      <details class="q"><summary>Сколько идёт доставка?</summary><p>По России — 2–5 дней курьером или в пункт выдачи. По вашему городу — на следующий день при заказе до 15:00.</p></details>
-      <details class="q"><summary>Можно вернуть, если не подошло?</summary><p>Да, 14 дней с момента получения при сохранённых бирках. Обратную доставку при обмене на другой размер берём на себя.</p></details>
-      <details class="q"><summary>Будут ли ещё цвета?</summary><p>Следующая партия — тёмно-синий и песочный. Оставьте почту в форме ниже, напишем за день до старта продаж.</p></details>
-    </div>
-
-    <div class="promises">
-      <div class="promise"><h3>Доставка от 2 дней</h3><p>Курьером до двери или в пункт выдачи рядом с домом.</p></div>
-      <div class="promise"><h3>Обмен размера бесплатно</h3><p>Один обмен на любой другой размер за наш счёт.</p></div>
-      <div class="promise"><h3>Гарантия на швы — год</h3><p>Разошёлся шов — меняем изделие без экспертизы.</p></div>
+      <details class="q"><summary>Можно ли носить парку зимой? До какой температуры она рассчитана?</summary>
+        <div class="a">Комфортный диапазон — от +10 до −10 °C. Со вторым слоем (флис или тонкий утеплённый жилет) парка держит и более низкую температуру: подкладка Wellsoft сохраняет тепло, а мембрана не даёт ветру продувать.</div></details>
+      <details class="q"><summary>Она полностью непромокаемая или водоотталкивающая?</summary>
+        <div class="a">Водонепроницаемая по мембране: столб воды 10 000 мм, швы проклеены. Сверху ткань обработана DWR — вода скатывается каплями, не впитываясь. В долгий ливень парка остаётся сухой изнутри.</div></details>
+      <details class="q"><summary>Что надевать под неё?</summary>
+        <div class="a">Крой свободный, рассчитан на второй слой. Осенью хватит футболки и лонгслива, ближе к нулю — флис или тонкая утеплённая куртка. Специально брать размер больше не нужно.</div></details>
+      <details class="q"><summary>Можно ли стирать в машинке?</summary>
+        <div class="a">Да, бережная стирка при 30–40 °C. Без отбеливателя, без машинной сушки, не гладить и не отдавать в химчистку.</div></details>
+      <details class="q"><summary>Нужно ли ухаживать за мембраной?</summary>
+        <div class="a">Мембрана ухода не требует, а вот DWR со временем стирается. Когда вода перестанет скатываться каплями — постирайте парку со средством для мембранных тканей, пропитка восстановится.</div></details>
+      <details class="q"><summary>Сколько длится доставка?</summary>
+        <div class="a">По России — 2–5 дней курьером или в пункт выдачи. Отправляем на следующий рабочий день после заказа, трек-номер приходит на почту.</div></details>
     </div>
   </div>
 </section>
 
-<!-- ===== ФИНАЛ ===== -->
-<section class="closer">
+<!-- ===================== 08 — ОТЗЫВЫ ===================== -->
+<section>
   <div class="wrap">
-    <h2>Тепло, которое носят каждый день</h2>
-    <p>Три цвета, шесть размеров, одна плотность — 400 г/м².</p>
-    <a href="#hero" class="btn">Выбрать худи</a>
+    <div class="sec-head"><h2>Отзывы</h2></div>
+    <div class="revs">
+      <div class="rev"><div class="mark">“</div><p>Шли под дождём четыре часа по реке. Внутри сухо, спина не мокрая — это главное, что я хотел проверить.</p></div>
+      <div class="rev"><div class="mark">“</div><p>Подкладка правда как плед. Сидели вечером у воды, ветер сильный, а в парке было тепло без второго слоя.</p></div>
+      <div class="rev"><div class="mark">“</div><p>Взял хаки, размер L при росте 182. Свободно, но не мешком. Карманы глубокие, телефон во внутреннем не намок.</p></div>
+    </div>
   </div>
 </section>
 
+<!-- ===================== ФУТЕР ===================== -->
 <footer>
-  <div class="wrap fgrid">
-    <div>
-      <div class="brand">ТЁПЛО</div>
-      <div>© 2026. Худи и свитшоты.</div>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand">SWIMMER</div>
+        <p class="fslogan">Увидимся у воды.</p>
+      </div>
+      <div>
+        <h4>РАЗДЕЛЫ</h4>
+        <a href="#product">Каталог</a>
+        <button data-open="brand">О бренде</button>
+        <a href="#">Публичная оферта</a>
+        <a href="#">Способы оплаты</a>
+        <a href="#">Гарантия и возврат</a>
+        <a href="#">Производство</a>
+      </div>
+      <div>
+        <h4>КОНТАКТЫ</h4>
+        <a href="tel:+70000000000">+7 000 000-00-00</a>
+        <a href="mailto:hello@swimmer.ru">hello@swimmer.ru</a>
+        <button data-open="contacts">Все контакты</button>
+      </div>
     </div>
-    <div>
-      <a href="#colors">Худи</a>
-      <a href="#tech">Материал</a>
-      <a href="#sizes">Размеры</a>
-    </div>
-    <div>
-      <a href="#delivery">Доставка и возврат</a>
-      <a href="#delivery">Частые вопросы</a>
-      <a href="mailto:hello@example.ru">hello@example.ru</a>
+    <div class="fbot">
+      <span>© 2026 SWIMMER</span>
+      <span>Надёжные вещи для отдыха у воды</span>
     </div>
   </div>
 </footer>
 
+<!-- ===================== МОДАЛКИ ===================== -->
+<div class="ov" id="ov"></div>
+
+<div class="sheet modal" id="mProduct" role="dialog" aria-modal="true" aria-label="Карточка товара">
+  <div class="mhead"><h3 id="pTitleTop">Речная парка</h3><button class="x" data-close aria-label="Закрыть">×</button></div>
+  <div class="mbody" id="pBody"></div>
+</div>
+
+<div class="sheet modal narrow" id="mSizes" role="dialog" aria-modal="true" aria-label="Таблица размеров">
+  <div class="mhead"><h3>Таблица размеров</h3><button class="x" data-close aria-label="Закрыть">×</button></div>
+  <div class="mbody">
+    <table>
+      <thead><tr><th>Размер</th><th>Рост, см</th><th>Грудь, см</th><th>Талия, см</th><th>Бёдра, см</th></tr></thead>
+      <tbody>
+        <tr><td>XS</td><td>160–168</td><td>84–88</td><td>66–70</td><td>92–96</td></tr>
+        <tr><td>S</td><td>166–174</td><td>88–92</td><td>70–74</td><td>96–100</td></tr>
+        <tr><td>M</td><td>172–180</td><td>92–98</td><td>74–80</td><td>100–104</td></tr>
+        <tr><td>L</td><td>178–186</td><td>98–104</td><td>80–86</td><td>104–110</td></tr>
+        <tr><td>XL</td><td>184–192</td><td>104–110</td><td>86–94</td><td>110–116</td></tr>
+        <tr><td>XXL</td><td>188–196</td><td>110–118</td><td>94–102</td><td>116–122</td></tr>
+        <tr><td>Универсальный</td><td>170–190</td><td>92–110</td><td>74–94</td><td>100–116</td></tr>
+      </tbody>
+    </table>
+    <p class="lede" style="font-size:14px">Мерки сняты по телу. Крой свободный — парка рассчитана на второй слой, брать размер больше не нужно.</p>
+  </div>
+</div>
+
+<div class="sheet modal" id="mBrand" role="dialog" aria-modal="true" aria-label="О бренде">
+  <div class="mhead"><h3>О бренде</h3><button class="x" data-close aria-label="Закрыть">×</button></div>
+  <div class="mbody brand-body">
+    <h2 style="margin-bottom:20px">Всё началось у реки</h2>
+    <p>SWIMMER придумали люди, которые проводят у воды больше времени, чем на суше. Сплавы, утренняя рыбалка, поздние возвращения по холодной воде — вещи для этого всегда приходилось собирать из разных категорий: что-то туристическое, что-то городское, и ничего до конца подходящего.</p>
+    <p>Мы делаем одежду для одного конкретного сценария: отдых у воды в плохую погоду. Отсюда мембрана вместо модной ткани, длина, закрывающая поясницу в лодке, и подкладка, в которой не холодно сидеть на берегу вечером.</p>
+    <p>Шьём в России небольшими партиями. Каждую модель носим сами минимум сезон, прежде чем поставить в продажу — поэтому линейка растёт медленно.</p>
+    <p><a href="#product" class="linkish" data-close>Выбрать надёжную вещь для отдыха на природе</a></p>
+    <div class="ph big">фото — река на весь экран</div>
+  </div>
+</div>
+
+<div class="sheet modal narrow" id="mContacts" role="dialog" aria-modal="true" aria-label="Контакты">
+  <div class="mhead"><h3>Контакты</h3><button class="x" data-close aria-label="Закрыть">×</button></div>
+  <div class="mbody">
+    <div class="contacts-list">
+      <div><b>АДРЕС</b>г. Москва, ул. Примерная, 1, стр. 2</div>
+      <div><b>ТЕЛЕФОН</b><a href="tel:+70000000000">+7 000 000-00-00</a></div>
+      <div><b>E-MAIL</b><a href="mailto:hello@swimmer.ru">hello@swimmer.ru</a></div>
+      <div><b>РАЗДЕЛЫ</b>
+        <a href="#product" data-close>Каталог</a>
+        <a href="#">Публичная оферта</a>
+        <a href="#">Способы оплаты</a>
+        <a href="#">Гарантия и возврат</a>
+        <a href="#">Производство</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet drawer" id="mCart" role="dialog" aria-modal="true" aria-label="Корзина">
+  <div class="mhead"><h3>Корзина</h3><button class="x" data-close aria-label="Закрыть">×</button></div>
+  <div class="citems" id="cartItems"></div>
+  <div class="cfoot">
+    <div class="total"><span>Итого</span><span class="num" id="cartTotal">0 ₽</span></div>
+    <button class="add" id="checkout">ОФОРМИТЬ ЗАКАЗ</button>
+    <button class="cont" data-close>Продолжить покупки</button>
+  </div>
+</div>
+
 <script>
-/* ============================================================
-   HERO: слайды. Поддерживает image, video и пустой placeholder.
-   Чтобы вставить своё — замените src. Порядок = порядок показа.
-   { type:'image', src:'img/hero-1.jpg', alt:'...' }
-   { type:'video', src:'video/hero.mp4', poster:'img/poster.jpg' }
-   { type:'placeholder', label:'текст' }
-   ============================================================ */
+/* =========================================================================
+   ДАННЫЕ — всё, что нужно менять, лежит здесь.
+   Медиа: { type:'image', src:'img/1.jpg' }
+          { type:'video', src:'video/1.mp4', poster:'img/1.jpg' }
+          { type:'placeholder', label:'подпись' }
+   ========================================================================= */
+
 var HERO_SLIDES = [
-  { type:'placeholder', label:'слайд 1 — фото или видео' },
-  { type:'placeholder', label:'слайд 2 — фото или видео' },
-  { type:'placeholder', label:'слайд 3 — фото или видео' }
+  { type:'placeholder', label:'HERO 1 — фото или видео на всю ширину' },
+  { type:'placeholder', label:'HERO 2 — фото или видео' },
+  { type:'placeholder', label:'HERO 3 — фото или видео' }
 ];
 
-var AUTOPLAY_MS = 6000;
+var COLORS = [
+  { id:'khaki', name:'Хаки',   hex:'#575E43' },
+  { id:'black', name:'Чёрный', hex:'#22262A' },
+  { id:'blue',  name:'Синий',  hex:'#41546B' }
+];
 
-var slidesEl = document.getElementById('slides');
-var dotsEl = document.getElementById('dots');
-var idx = 0, timer = null;
+var SIZES = ['XS','S','M','L','XL','XXL','Универсальный'];
 
-function buildSlide(s){
-  var wrapEl = document.createElement('div');
-  wrapEl.className = 'slide';
-  if (s.type === 'video' && s.src) {
+var PRODUCTS = [
+  { id:'parka-khaki', name:'Речная парка', colorId:'khaki', price:24990, sku:'SW-RP-KH',
+    shots:['фото — парка хаки','ракурс 2','ракурс 3','деталь'] },
+  { id:'parka-black', name:'Речная парка', colorId:'black', price:24990, sku:'SW-RP-BK',
+    shots:['фото — парка чёрная','ракурс 2','ракурс 3','деталь'] },
+  { id:'parka-blue',  name:'Речная парка', colorId:'blue',  price:24990, sku:'SW-RP-BL',
+    shots:['фото — парка синяя','ракурс 2','ракурс 3','деталь'] }
+];
+
+var SCENARIOS = [
+  { media:{ type:'placeholder', label:'фото/видео — сплав по реке' },
+    title:'Вода', text:'Длина закрывает поясницу в лодке, капюшон регулируется под ветер с воды.' },
+  { media:{ type:'placeholder', label:'фото/видео — лес и лагерь' },
+    title:'Природа', text:'Плотная ткань 140 g/m не боится веток и мокрой травы.' },
+  { media:{ type:'placeholder', label:'фото/видео — город и дорога' },
+    title:'Свобода', text:'Сложили в фирменный мешок, убрали в багажник — и парка едет с вами.' }
+];
+
+var DETAILS = [
+  { label:'макро — капюшон',  title:'Капюшон',  text:'Анатомический, с регулировкой по объёму и глубине. Не падает на глаза.' },
+  { label:'макро — воротник', title:'Воротник', text:'Высокий, закрывает шею до подбородка. Изнутри подбит мягким ворсом.' },
+  { label:'макро — манжеты',  title:'Манжеты',  text:'Регулируемые: затягиваются в дождь и распускаются, когда жарко.' },
+  { label:'макро — карманы',  title:'Карманы',  text:'Два вместительных внешних и внутренний водонепроницаемый для документов.' },
+  { label:'макро — молния',   title:'Молния',   text:'Двухзамковая, под ветрозащитным клапаном. Открывается снизу при ходьбе.' }
+];
+
+var MODEL_NOTE = 'Модель: рост 182 см, на фото размер L';
+
+/* ========================== ХЕЛПЕРЫ ========================== */
+function colorById(id){ for (var i=0;i<COLORS.length;i++) if (COLORS[i].id===id) return COLORS[i]; return COLORS[0]; }
+function money(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ') + ' \u20BD'; }
+function el(tag, cls, txt){ var e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e; }
+
+function mediaNode(m, phClass){
+  if (m && m.type === 'video' && m.src) {
     var v = document.createElement('video');
-    v.src = s.src; v.muted = true; v.loop = true; v.playsInline = true;
+    v.src = m.src; v.muted = true; v.loop = true; v.playsInline = true;
     v.setAttribute('playsinline',''); v.preload = 'metadata';
-    if (s.poster) v.poster = s.poster;
-    wrapEl.appendChild(v);
-  } else if (s.type === 'image' && s.src) {
-    var i = document.createElement('img');
-    i.src = s.src; i.alt = s.alt || '';
-    wrapEl.appendChild(i);
-  } else {
-    var p = document.createElement('div');
-    p.className = 'ph'; p.dataset.tone = 'dark';
-    p.textContent = s.label || 'медиа';
-    wrapEl.appendChild(p);
+    if (m.poster) v.poster = m.poster;
+    return v;
   }
-  return wrapEl;
+  if (m && m.type === 'image' && m.src) {
+    var i = document.createElement('img'); i.src = m.src; i.alt = m.alt || ''; return i;
+  }
+  var p = el('div', 'ph' + (phClass ? ' ' + phClass : ''));
+  p.textContent = (m && m.label) || 'медиа';
+  return p;
 }
 
-HERO_SLIDES.forEach(function(s, n){
-  var el = buildSlide(s);
-  if (n === 0) el.classList.add('on');
-  slidesEl.appendChild(el);
+/* ========================== HERO ========================== */
+(function(){
+  var box = document.getElementById('heroSlides'),
+      dots = document.getElementById('heroDots'),
+      i = 0, t = null;
 
-  var d = document.createElement('button');
-  d.setAttribute('aria-label', 'Слайд ' + (n + 1));
-  d.setAttribute('aria-current', n === 0 ? 'true' : 'false');
-  d.addEventListener('click', function(){ go(n); });
-  dotsEl.appendChild(d);
+  HERO_SLIDES.forEach(function(s, n){
+    var slide = el('div','hs');
+    if (n === 0) slide.classList.add('on');
+    slide.appendChild(mediaNode(s,'dark'));
+    box.appendChild(slide);
+
+    var d = el('button');
+    d.setAttribute('aria-label','Слайд ' + (n+1));
+    d.setAttribute('aria-current', n === 0 ? 'true' : 'false');
+    d.addEventListener('click', function(){ go(n); });
+    dots.appendChild(d);
+  });
+
+  function go(n){
+    var a = box.children, b = dots.children;
+    if (a.length < 2) return;
+    a[i].classList.remove('on'); b[i].setAttribute('aria-current','false');
+    var pv = a[i].querySelector('video'); if (pv) pv.pause();
+    i = (n + a.length) % a.length;
+    a[i].classList.add('on'); b[i].setAttribute('aria-current','true');
+    var v = a[i].querySelector('video'); if (v){ v.currentTime = 0; v.play().catch(function(){}); }
+    tick();
+  }
+  function tick(){ clearInterval(t); if (HERO_SLIDES.length > 1) t = setInterval(function(){ go(i+1); }, 6500); }
+
+  document.getElementById('hNext').addEventListener('click', function(){ go(i+1); });
+  document.getElementById('hPrev').addEventListener('click', function(){ go(i-1); });
+
+  var x0 = null, hero = document.getElementById('hero');
+  hero.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  hero.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(dx < 0 ? i+1 : i-1);
+    x0 = null;
+  }, {passive:true});
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) tick();
+  var fv = box.querySelector('.hs.on video'); if (fv) fv.play().catch(function(){});
+})();
+
+/* ========================== КАТАЛОГ ========================== */
+(function(){
+  var rail = document.getElementById('rail');
+
+  PRODUCTS.forEach(function(p){
+    var c = colorById(p.colorId);
+    var card = el('div','card');
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+
+    var shot = el('div','shot');
+    shot.appendChild(mediaNode({ type:'placeholder', label:p.shots[0] }));
+    card.appendChild(shot);
+
+    var body = el('div','cbody');
+    body.appendChild(el('h3', null, p.name));
+    var col = el('div','col');
+    var dot = el('span','dot'); dot.style.background = c.hex;
+    col.appendChild(dot); col.appendChild(el('span', null, c.name));
+    body.appendChild(col);
+    body.appendChild(el('div','price', money(p.price)));
+    card.appendChild(body);
+
+    card.addEventListener('click', function(){ openProduct(p.id); });
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openProduct(p.id); }
+    });
+
+    rail.appendChild(card);
+  });
+
+  function step(dir){
+    var first = rail.querySelector('.card');
+    if (!first) return;
+    rail.scrollBy({ left: dir * (first.offsetWidth + 24), behavior:'smooth' });
+  }
+  document.getElementById('pNext').addEventListener('click', function(){ step(1); });
+  document.getElementById('pPrev').addEventListener('click', function(){ step(-1); });
+})();
+
+/* ========================== СЦЕНАРИИ ========================== */
+(function(){
+  var box = document.getElementById('scenSlides'),
+      dots = document.getElementById('scenDots'),
+      copy = document.getElementById('scBox'),
+      i = 0, t = null;
+
+  SCENARIOS.forEach(function(s, n){
+    var slide = el('div','sc');
+    if (n === 0) slide.classList.add('on');
+    var med = el('div','med');
+    med.appendChild(mediaNode(s.media,'dark'));
+    slide.appendChild(med);
+    slide.appendChild(el('div','shade'));
+    box.appendChild(slide);
+
+    var d = el('button');
+    d.setAttribute('aria-label','Сценарий ' + (n+1));
+    d.setAttribute('aria-current', n === 0 ? 'true' : 'false');
+    d.addEventListener('click', function(){ go(n); });
+    dots.appendChild(d);
+  });
+
+  function paint(){
+    copy.innerHTML = '';
+    copy.appendChild(el('h3', null, SCENARIOS[i].title));
+    copy.appendChild(el('p', null, SCENARIOS[i].text));
+  }
+  function go(n){
+    var a = box.children, b = dots.children;
+    if (!a.length) return;
+    a[i].classList.remove('on'); b[i].setAttribute('aria-current','false');
+    var pv = a[i].querySelector('video'); if (pv) pv.pause();
+    i = (n + a.length) % a.length;
+    a[i].classList.add('on'); b[i].setAttribute('aria-current','true');
+    var v = a[i].querySelector('video'); if (v){ v.currentTime = 0; v.play().catch(function(){}); }
+    paint(); tick();
+  }
+  function tick(){ clearInterval(t); if (SCENARIOS.length > 1) t = setInterval(function(){ go(i+1); }, 7000); }
+
+  paint();
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) tick();
+})();
+
+/* ========================== КОНСТРУКЦИЯ ========================== */
+(function(){
+  var rail = document.getElementById('detRail');
+  DETAILS.forEach(function(d){
+    var card = el('div','det');
+    card.appendChild(mediaNode({ type:'placeholder', label:d.label }));
+    var cap = el('div','cap');
+    cap.appendChild(el('h3', null, d.title));
+    cap.appendChild(el('p', null, d.text));
+    card.appendChild(cap);
+    rail.appendChild(card);
+  });
+  function step(dir){
+    var first = rail.querySelector('.det');
+    if (!first) return;
+    rail.scrollBy({ left: dir * (first.offsetWidth + 20), behavior:'smooth' });
+  }
+  document.getElementById('dNext').addEventListener('click', function(){ step(1); });
+  document.getElementById('dPrev').addEventListener('click', function(){ step(-1); });
+})();
+
+/* ========================== МОДАЛКИ ========================== */
+var ov = document.getElementById('ov');
+var SHEETS = { product:'mProduct', sizes:'mSizes', brand:'mBrand', contacts:'mContacts', cart:'mCart' };
+var openStack = [];
+
+function openSheet(key){
+  var node = document.getElementById(SHEETS[key]);
+  if (!node) return;
+  node.classList.add('on');
+  ov.classList.add('on');
+  document.body.classList.add('lock');
+  if (openStack.indexOf(key) === -1) openStack.push(key);
+}
+function closeTop(){
+  var key = openStack.pop();
+  if (key) document.getElementById(SHEETS[key]).classList.remove('on');
+  if (!openStack.length){ ov.classList.remove('on'); document.body.classList.remove('lock'); }
+}
+function closeAll(){
+  openStack.forEach(function(k){ document.getElementById(SHEETS[k]).classList.remove('on'); });
+  openStack = [];
+  ov.classList.remove('on');
+  document.body.classList.remove('lock');
+}
+
+document.addEventListener('click', function(e){
+  var o = e.target.closest ? e.target.closest('[data-open]') : null;
+  if (o){ openSheet(o.getAttribute('data-open')); return; }
+  var c = e.target.closest ? e.target.closest('[data-close]') : null;
+  if (c){
+    if (c.tagName === 'A' && c.getAttribute('href')) closeAll();
+    else { e.preventDefault(); closeTop(); }
+  }
+});
+ov.addEventListener('click', closeAll);
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeTop(); });
+
+/* ========================== КАРТОЧКА ТОВАРА ========================== */
+var sel = { productId:null, colorId:null, size:null };
+
+function openProduct(id){
+  var p = null;
+  for (var i=0;i<PRODUCTS.length;i++) if (PRODUCTS[i].id === id) p = PRODUCTS[i];
+  if (!p) return;
+  sel.productId = p.id; sel.colorId = p.colorId; sel.size = null;
+  renderProduct();
+  openSheet('product');
+}
+function currentProduct(){
+  for (var i=0;i<PRODUCTS.length;i++) if (PRODUCTS[i].id === sel.productId) return PRODUCTS[i];
+  return PRODUCTS[0];
+}
+function productByColor(name, colorId){
+  for (var i=0;i<PRODUCTS.length;i++){
+    if (PRODUCTS[i].name === name && PRODUCTS[i].colorId === colorId) return PRODUCTS[i];
+  }
+  return null;
+}
+
+function renderProduct(){
+  var p = currentProduct(), c = colorById(sel.colorId);
+  document.getElementById('pTitleTop').textContent = p.name + ' ' + c.name.toLowerCase();
+
+  var body = document.getElementById('pBody');
+  body.innerHTML = '';
+  var grid = el('div','pcard');
+
+  var shots = el('div','pshots');
+  var main = el('div','ph main'); main.textContent = p.shots[0];
+  shots.appendChild(main);
+  var th = el('div','pthumbs');
+  p.shots.forEach(function(label){
+    var t = el('div','ph'); t.textContent = label;
+    t.addEventListener('click', function(){ main.textContent = label; });
+    th.appendChild(t);
+  });
+  shots.appendChild(th);
+  grid.appendChild(shots);
+
+  var info = el('div','pinfo');
+  info.appendChild(el('h2', null, p.name + ' ' + c.name.toLowerCase()));
+  info.appendChild(el('div','sku','Артикул: ' + (p.sku || '—')));
+  info.appendChild(el('div','pprice', money(p.price)));
+
+  info.appendChild(el('div','opt-label','Цвет: ' + c.name));
+  var row = el('div','colors-row');
+  COLORS.forEach(function(col){
+    var b = el('button','cbtn');
+    b.setAttribute('aria-pressed', col.id === sel.colorId ? 'true' : 'false');
+    var ic = document.createElement('i'); ic.style.background = col.hex;
+    b.appendChild(ic); b.appendChild(el('span', null, col.name));
+    var target = productByColor(p.name, col.id);
+    if (!target){ b.disabled = true; b.style.opacity = '.4'; }
+    b.addEventListener('click', function(){
+      if (!target) return;
+      sel.productId = target.id; sel.colorId = col.id;
+      renderProduct();
+    });
+    row.appendChild(b);
+  });
+  info.appendChild(row);
+
+  info.appendChild(el('div','opt-label','Размер'));
+  var sr = el('div','sizes-row');
+  SIZES.forEach(function(s){
+    var b = el('button','sbtn', s);
+    b.setAttribute('aria-pressed', s === sel.size ? 'true' : 'false');
+    b.addEventListener('click', function(){ sel.size = s; renderProduct(); });
+    sr.appendChild(b);
+  });
+  info.appendChild(sr);
+
+  var sizeLink = el('button','linkish','Таблица размеров');
+  sizeLink.addEventListener('click', function(){ openSheet('sizes'); });
+  info.appendChild(sizeLink);
+
+  info.appendChild(el('div','model-note', MODEL_NOTE));
+
+  var add = el('button','add','ПОЛОЖИТЬ В КОРЗИНУ');
+  add.addEventListener('click', function(){
+    if (!sel.size){
+      add.textContent = 'ВЫБЕРИТЕ РАЗМЕР';
+      setTimeout(function(){ add.textContent = 'ПОЛОЖИТЬ В КОРЗИНУ'; }, 1600);
+      return;
+    }
+    addToCart(p, c, sel.size);
+    closeTop();
+    openSheet('cart');
+  });
+  info.appendChild(add);
+
+  var d = el('div','pdesc');
+  d.appendChild(el('p', null, 'Тёплая мембранная парка для сырой, ветреной и холодной погоды. Создана для отдыха у воды, города, леса и дороги.'));
+  var sp = el('div','specs-inline');
+  ['3L MEMBRANE','10K / 10K','140 G/M²','DWR'].forEach(function(s){ sp.appendChild(el('span', null, s)); });
+  d.appendChild(sp);
+  d.appendChild(el('p', null, 'Анатомический регулируемый капюшон и высокий воротник защищают от ветра и осадков. Двухзамковая молния и регулируемые манжеты позволяют адаптировать посадку под движение и погоду. Вместительные внешние карманы рассчитаны на необходимые вещи. Внутренний водонепроницаемый карман — для документов и телефона.'));
+  d.appendChild(el('p', null, 'Свободный крой позволяет носить парку поверх второго слоя.'));
+  d.appendChild(el('p', null, 'Надёжно снаружи. Уютно внутри.'));
+  info.appendChild(d);
+
+  var acc = el('div','acc');
+  acc.innerHTML =
+    '<details><summary>Состав</summary><div class="in">' +
+      '<p>Верх: 100% полиэстер</p><p>Мембрана: ТПУ</p><p>Подкладка: 100% полиэстер</p></div></details>' +
+    '<details><summary>Уход</summary><div class="in">' +
+      '<p>Бережная стирка при 30–40 °C</p><p>Не отбеливать</p><p>Без машинной сушки</p><p>Не гладить</p><p>Не подвергать химчистке</p></div></details>' +
+    '<details><summary>Комплектация</summary><div class="in">' +
+      '<p>Парка + фирменный непромокаемый мешок для хранения + брендированный зип-пакет</p></div></details>' +
+    '<details><summary>Доставка</summary><div class="in">' +
+      '<p>По России — 2–5 дней курьером или в пункт выдачи.</p>' +
+      '<p>Отправка на следующий рабочий день, трек-номер приходит на почту.</p></div></details>';
+  info.appendChild(acc);
+
+  grid.appendChild(info);
+  body.appendChild(grid);
+}
+
+/* ========================== КОРЗИНА ========================== */
+var CART = [];
+
+function addToCart(p, c, size){
+  var key = p.id + '|' + size;
+  for (var i=0;i<CART.length;i++){
+    if (CART[i].key === key){ CART[i].qty++; renderCart(); return; }
+  }
+  CART.push({ key:key, name:p.name, sku:p.sku, color:c.name,
+              size:size, price:p.price, qty:1, shot:p.shots[0] });
+  renderCart();
+}
+
+function renderCart(){
+  var box = document.getElementById('cartItems');
+  box.innerHTML = '';
+  var total = 0, count = 0;
+
+  if (!CART.length){
+    box.appendChild(el('div','empty','Пока пусто. Выберите парку в каталоге.'));
+  }
+
+  CART.forEach(function(it){
+    total += it.price * it.qty;
+    count += it.qty;
+
+    var row = el('div','citem');
+    var img = el('div','ph'); img.textContent = it.shot;
+    row.appendChild(img);
+
+    var col = el('div');
+    col.appendChild(el('h4', null, it.name + ' ' + it.color.toLowerCase()));
+    col.appendChild(el('div','meta','Артикул: ' + (it.sku || '—')));
+    col.appendChild(el('div','meta','Цвет: ' + it.color + ' · Размер: ' + it.size));
+
+    var q = el('div','qty');
+    var minus = el('button', null, '−');
+    var val = el('span', null, String(it.qty));
+    var plus = el('button', null, '+');
+    minus.addEventListener('click', function(){
+      it.qty--;
+      if (it.qty < 1) CART = CART.filter(function(x){ return x.key !== it.key; });
+      renderCart();
+    });
+    plus.addEventListener('click', function(){ it.qty++; renderCart(); });
+    q.appendChild(minus); q.appendChild(val); q.appendChild(plus);
+    col.appendChild(q);
+
+    var r = el('div','row');
+    r.appendChild(el('div','price num', money(it.price * it.qty)));
+    var rm = el('button','rm','Удалить');
+    rm.addEventListener('click', function(){
+      CART = CART.filter(function(x){ return x.key !== it.key; });
+      renderCart();
+    });
+    r.appendChild(rm);
+    col.appendChild(r);
+
+    row.appendChild(col);
+    box.appendChild(row);
+  });
+
+  document.getElementById('cartTotal').textContent = money(total);
+  document.getElementById('cartCount').textContent = String(count);
+}
+
+document.getElementById('checkout').addEventListener('click', function(){
+  var b = this;
+  if (!CART.length){
+    b.textContent = 'КОРЗИНА ПУСТА';
+    setTimeout(function(){ b.textContent = 'ОФОРМИТЬ ЗАКАЗ'; }, 1600);
+    return;
+  }
+  b.textContent = 'ПОДКЛЮЧИТЕ ОПЛАТУ';
+  setTimeout(function(){ b.textContent = 'ОФОРМИТЬ ЗАКАЗ'; }, 2000);
 });
 
-function go(n){
-  var all = slidesEl.children, dots = dotsEl.children;
-  if (!all.length) return;
-  all[idx].classList.remove('on');
-  dots[idx].setAttribute('aria-current','false');
-  var prevVid = all[idx].querySelector('video');
-  if (prevVid) prevVid.pause();
-
-  idx = (n + all.length) % all.length;
-
-  all[idx].classList.add('on');
-  dots[idx].setAttribute('aria-current','true');
-  var vid = all[idx].querySelector('video');
-  if (vid) { vid.currentTime = 0; vid.play().catch(function(){}); }
-  restart();
-}
-
-function restart(){
-  clearInterval(timer);
-  if (HERO_SLIDES.length > 1) timer = setInterval(function(){ go(idx + 1); }, AUTOPLAY_MS);
-}
-
-document.getElementById('next').addEventListener('click', function(){ go(idx + 1); });
-document.getElementById('prev').addEventListener('click', function(){ go(idx - 1); });
-
-document.addEventListener('keydown', function(e){
-  if (e.key === 'ArrowRight') go(idx + 1);
-  if (e.key === 'ArrowLeft') go(idx - 1);
-});
-
-/* свайп на телефоне */
-var x0 = null;
-var heroEl = document.getElementById('hero');
-heroEl.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
-heroEl.addEventListener('touchend', function(e){
-  if (x0 === null) return;
-  var dx = e.changedTouches[0].clientX - x0;
-  if (Math.abs(dx) > 50) go(dx < 0 ? idx + 1 : idx - 1);
-  x0 = null;
-}, {passive:true});
-
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) restart();
-
-/* первое видео стартует само, если оно первым слайдом */
-var firstVid = slidesEl.querySelector('.slide.on video');
-if (firstVid) firstVid.play().catch(function(){});
+renderCart();
 </script>
 </body>
 </html>
